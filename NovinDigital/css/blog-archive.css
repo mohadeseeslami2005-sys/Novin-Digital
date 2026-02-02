@@ -1,0 +1,214 @@
+.blog-archive-hero {
+    background: linear-gradient(135deg, #f8f9fa, #eef7ff);
+    padding: 60px 0 40px;
+    border-bottom: 1px solid rgba(13, 202, 240, 0.1);
+}
+
+.blog-archive-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #1a1a2e;
+    margin-bottom: 10px;
+}
+
+.blog-archive-subtitle {
+    color: #6c757d;
+    font-size: 1.1rem;
+}
+
+.archive-stats {
+    display: inline-flex;
+    gap: 30px;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #0dcaf0;
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin-top: 5px;
+}
+
+.archive-cards {
+    background: white;
+    min-height: 60vh;
+}
+
+.archive-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    height: 100%;
+    border: 2px solid white;
+}
+
+.archive-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    border-color: #0dcaf0;
+}
+
+.card-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: linear-gradient(135deg, #0dcaf0, #0aa2c0);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    z-index: 2;
+}
+
+.archive-card-img {
+    height: 180px;
+    overflow: hidden;
+    position: relative;
+}
+
+.archive-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.archive-card:hover .archive-card-img img {
+    transform: scale(1.05);
+}
+
+.archive-card-body {
+    padding: 20px;
+}
+
+.archive-meta {
+    font-size: 0.85rem;
+    color: #6c757d;
+}
+
+.archive-date,
+.archive-time {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.archive-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 10px;
+    line-height: 1.4;
+    height: 2.8em;
+    overflow: hidden;
+}
+
+.archive-excerpt {
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    height: 4.2em;
+    overflow: hidden;
+}
+
+.archive-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.archive-tag {
+    background: rgba(13, 202, 240, 0.1);
+    color: #0dcaf0;
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.archive-tag:hover {
+    background: #0dcaf0;
+    color: white;
+}
+
+.archive-card-footer {
+    padding: 15px 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.btn-archive-read {
+    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.btn-archive-read:hover {
+    background: linear-gradient(135deg, #7c3aed, #6d28d9);
+    transform: translateY(-2px);
+    color: white;
+}
+
+@media (max-width: 992px) {
+    .blog-archive-title {
+        font-size: 1.8rem;
+    }
+    .archive-stats {
+        justify-content: flex-start;
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .blog-archive-hero {
+        padding: 40px 0 30px;
+    }
+    .archive-card-img {
+        height: 160px;
+    }
+    .archive-title {
+        font-size: 1rem;
+        height: 3.2em;
+    }
+    .archive-excerpt {
+        font-size: 0.85rem;
+        height: 4.8em;
+    }
+}
+
+@media (max-width: 576px) {
+    .archive-stats {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .stat-number {
+        font-size: 1.5rem;
+    }
+    .archive-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+}

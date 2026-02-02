@@ -1,0 +1,1320 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نوین دیجیتال - فروشگاه تخصصی محصولات دیجیتال</title>
+
+
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+
+    <link rel="stylesheet" href="css/style.css">
+
+
+    <meta name="description" content="فروشگاه تخصصی محصولات دیجیتال با بهترین قیمت، گارانتی اصلی و پشتیبانی ۲۴ ساعته">
+    <meta name="keywords" content="موبایل, لپ‌تاپ, تبلت, هدفون, ساعت هوشمند, دیجیتال, خرید اقساطی">
+    <meta name="author" content="نوین دیجیتال">
+</head>
+
+<body>
+
+    <div class="modal novin-modal fade" id="cartModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title"><i class="bi bi-cart-check me-2"></i> سبد خرید شما</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <div class="empty-cart text-center py-5" id="emptyCartMessage">
+                        <i class="bi bi-cart-x text-muted display-4 mb-3"></i>
+                        <h6 class="text-muted mb-2">سبد خرید شما خالی است</h6>
+                        <a href="products.html" class="btn btn-primary mt-2">
+                            <i class="bi bi-bag me-1"></i>مشاهده محصولات
+                        </a>
+                    </div>
+                    <div class="cart-items" id="cartItemsContainer" style="display: none;">
+                        <div class="cart-item-list" id="cartItemList">
+
+                        </div>
+                        <div class="cart-summary p-4 border-top">
+                            <div class="row">
+                                <div class="col-6">
+                                    <h6 class="mb-0">جمع کل:</h6>
+                                </div>
+                                <div class="col-6 text-start">
+                                    <h5 class="text-danger mb-0" id="cartTotal">۰ تومان</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">بستن</button>
+                    <a href="checkout.html" class="btn btn-success" id="checkoutBtn" style="display: none;">
+                        <i class="bi bi-credit-card me-1"></i>ثبت سفارش
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal novin-modal fade" id="searchModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0 pb-0">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="search-modal-content">
+                        <h5 class="mb-4"><i class="bi bi-search me-2"></i>جستجوی محصولات</h5>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control form-control-lg search-modal-input" placeholder="نام محصول، برند یا مدل را جستجو کنید...">
+                            <button class="btn btn-primary" type="button" id="modalSearchBtn">
+                                <i class="bi bi-search"></i>
+                            </button>
+                        </div>
+                        <div class="search-suggestions mt-4" id="searchSuggestions">
+                            <h6 class="text-muted mb-3">جستجوهای پرطرفدار:</h6>
+                            <div class="d-flex flex-wrap gap-2">
+                                <span class="badge bg-light text-dark border">آیفون ۱۷</span>
+                                <span class="badge bg-light text-dark border">سامسونگ S25</span>
+                                <span class="badge bg-light text-dark border">لپ‌تاپ ایسر</span>
+                                <span class="badge bg-light text-dark border">هدفون انکر</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="toast-container position-fixed top-0 end-0 p-3">
+
+    </div>
+
+
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="novin-loader">
+            <div class="novin-loader__bar"></div>
+            <div class="novin-loader__bar"></div>
+            <div class="novin-loader__bar"></div>
+            <div class="novin-loader__bar"></div>
+            <div class="novin-loader__bar"></div>
+            <div class="novin-loader__ball"></div>
+        </div>
+        <p class="mt-4 fw-bold" style="color: #6C63FF;">در حال بارگذاری...</p>
+    </div>
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark novin-header sticky-top">
+        <div class="container">
+
+            <div class="d-flex align-items-center">
+
+                <a class="navbar-brand d-flex align-items-center me-3" href="index.html">
+                    <img src="images/بدون بک.png" alt="نوین دیجیتال" class="logo-img">
+                    <span class="brand-name me-2">NovinDigital</span>
+                </a>
+
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarContent">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="index.html">خانه</a>
+                        </li>
+
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                                محصولات
+                            </a>
+                            <ul class="dropdown-menu">
+
+                                <li><a class="dropdown-item fw-bold" href="product archive.html">آرشیو محصولات</a></li>
+                            </ul>
+                        </li>
+
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                                بلاگ
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="blog.html">مقالات جدید</a></li>
+                                <li><a class="dropdown-item" href="blog archive.html">آرشیو بلاگ</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">درباره ما</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="installment.html">خرید اقساطی</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+
+
+            <div class="d-none d-lg-flex flex-grow-1"></div>
+
+
+            <div class="nav-icons d-flex align-items-center">
+
+                <button class="nav-icon me-2" type="button" data-bs-toggle="modal" data-bs-target="#searchModal" title="جستجو">
+                    <i class="bi bi-search"></i>
+                </button>
+
+
+                <div class="dropdown me-2">
+                    <button class="nav-icon dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                        <i class="bi bi-person"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="login.html">ورود</a></li>
+                        <li><a class="dropdown-item" href="register.html">ثبت‌نام</a></li>
+                        <li>
+                        </li>
+                    </ul>
+                </div>
+
+                <a href="wishlist.html" class="nav-icon me-2 position-relative" title="علاقه‌مندی‌ها">
+                    <i class="bi bi-heart"></i>
+                    <span class="icon-badge">۳</span>
+                </a>
+
+
+                <button class="nav-icon position-relative" type="button" data-bs-toggle="modal" data-bs-target="#cartModal" title="سبد خرید">
+                    <i class="bi bi-cart"></i>
+                    <span class="icon-badge" id="cartCountBadge">۲</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+
+    <section class="main-slider">
+        <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+            </div>
+
+
+            <div class="carousel-inner">
+
+                <div class="carousel-item active" data-bs-interval="10000">
+                    <div class="slider-img" style="background-image: url('images/اسلایدر اصلی.png');"></div>
+                </div>
+
+
+                <div class="carousel-item" data-bs-interval="10000">
+                    <div class="slider-img" style="background: #000;">
+                        <video autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover;">
+            <source src="videos/بنر فیلم.mp4" type="video/mp4">
+        </video>
+                    </div>
+                </div>
+
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">قبلی</span>
+            </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">بعدی</span>
+            </button>
+            </div>
+    </section>
+
+
+    <section class="categories-section py-5">
+        <div class="container">
+            <div class="section-header text-center mb-5">
+                <h2 class="section-title">دسته‌بندی محصولات</h2>
+                <p class="section-subtitle">انتخاب از بین بهترین‌ها</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-6 col-md-4 col-lg-2">
+                    <a href="p mobile.html" class="category-item">
+                        <div class="circle-img">
+                            <img src="images/موبایل گرد (4).jpg" alt="موبایل" loading="lazy">
+                        </div>
+                        <h6 class="text-center mt-3">موبایل</h6>
+                    </a>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg-2">
+                    <a href="p laptop.html" class="category-item">
+                        <div class="circle-img">
+                            <img src="images/لبتاب گرد (2).jpg" alt="لپ‌تاپ" loading="lazy">
+                        </div>
+                        <h6 class="text-center mt-3">لپ‌تاپ</h6>
+                    </a>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg-2">
+                    <a href="p tablet.html" class="category-item">
+                        <div class="circle-img">
+                            <img src="images/تبلت گرد (3).jpg" alt="تبلت" loading="lazy">
+                        </div>
+                        <h6 class="text-center mt-3">تبلت</h6>
+                    </a>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg-2">
+                    <a href="headphones.html" class="category-item">
+                        <div class="circle-img">
+                            <img src="images/هدفون گرد.jpg" alt="هدفون" loading="lazy">
+                        </div>
+                        <h6 class="text-center mt-3">هدفون</h6>
+                    </a>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg-2">
+                    <a href="p watches.html" class="category-item">
+                        <div class="circle-img">
+                            <img src="images/ساعت گرد (1).jpg" alt="ساعت هوشمند" loading="lazy">
+                        </div>
+                        <h6 class="text-center mt-3">ساعت هوشمند</h6>
+                    </a>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg-2">
+                    <a href="accessories.html" class="category-item">
+                        <div class="circle-img">
+                            <img src="images/لوازم جانبی گرد.png" alt="لوازم جانبی" loading="lazy">
+                        </div>
+                        <h6 class="text-center mt-3">لوازم جانبی</h6>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="best-selling py-5">
+        <div class="container">
+            <div class="section-header text-center mb-5">
+                <h2 class="section-title">محصولات پرفروش</h2>
+                <p class="section-subtitle">پرطرفدارترین محصولات دیجیتال</p>
+            </div>
+
+
+            <div class="product-filters mb-4">
+                <div class="d-flex flex-wrap gap-2 justify-content-center">
+                    <button class="btn btn-outline-primary filter-btn active" data-filter="all">همه</button>
+                    <button class="btn btn-outline-primary filter-btn" data-filter="mobile">موبایل</button>
+                    <button class="btn btn-outline-primary filter-btn" data-filter="laptop">لپ‌تاپ</button>
+                    <button class="btn btn-outline-primary filter-btn" data-filter="headphone">هدفون</button>
+                    <button class="btn btn-outline-primary filter-btn" data-filter="watch">ساعت</button>
+                </div>
+            </div>
+
+            <div class="best-selling-carousel-wrapper">
+                <div id="bestSellingCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        el-item active">
+                        <div class="row g-4">
+
+                            <div class="col-md-6 col-lg-3" data-category="mobile">
+                                <div class="product-card">
+                                    <div class="product-badge">پرفروش</div>
+                                    <div class="product-image">
+                                        <img src="images/iphone 17 chla.jpg" alt="آیفون ۱۷" loading="lazy">
+                                    </div>
+                                    <div class="product-info">
+                                        <h5 class="product-title">آیفون ۱۷ CH/A</h5>
+                                        <p class="product-specs">۲۵۶ گیگابایت - ۸ گیگابایت رم</p>
+                                        <div class="product-price">
+                                            <span class="current-price">۴۵,۰۰۰,۰۰۰ تومان</span>
+                                        </div>
+                                        <div class="product-rating">
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            <i class="bi bi-star-half text-warning"></i>
+                                            <span class="rating-count">(۱۲۴)</span>
+                                        </div>
+                                        <button class="btn btn-add-to-cart" data-product="1">
+                                                <i class="bi bi-cart-plus"></i>
+                                                افزودن به سبد
+                                            </button>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-6 col-lg-3" data-category="mobile">
+                                <div class="product-card">
+                                    <div class="product-badge">پرفروش</div>
+                                    <div class="product-image">
+                                        <img src="images/s25 sum.png" alt="سامسونگ S25 Ultra" loading="lazy">
+                                    </div>
+                                    <div class="product-info">
+                                        <h5 class="product-title">سامسونگ Galaxy S25 Ultra</h5>
+                                        <p class="product-specs">۲۵۶ گیگابایت - ۱۲ گیگابایت رم</p>
+                                        <div class="product-price">
+                                            <span class="current-price">۵۲,۰۰۰,۰۰۰ تومان</span>
+                                        </div>
+                                        <div class="product-rating">
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            <i class="bi bi-star text-warning"></i>
+                                            <span class="rating-count">(۸۹)</span>
+                                        </div>
+                                        <button class="btn btn-add-to-cart" data-product="2">
+                                                <i class="bi bi-cart-plus"></i>
+                                                افزودن به سبد
+                                            </button>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-6 col-lg-3" data-category="mobile">
+                                <div class="product-card">
+                                    <div class="product-badge">پرفروش</div>
+                                    <div class="product-image">
+                                        <img src="images/images.jpgApple iPhone 16promaxe.jpg" alt="آیفون ۱۶ Pro Max" loading="lazy">
+                                    </div>
+                                    <div class="product-info">
+                                        <h5 class="product-title">آیفون ۱۶ Pro Max ZA/A</h5>
+                                        <p class="product-specs">۲۵۶ گیگابایت - ۸ گیگابایت رم</p>
+                                        <div class="product-price">
+                                            <span class="current-price">۵۸,۰۰۰,۰۰۰ تومان</span>
+                                        </div>
+                                        <div class="product-rating">
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            <span class="rating-count">(۲۰۳)</span>
+                                        </div>
+                                        <button class="btn btn-add-to-cart" data-product="3">
+                                                <i class="bi bi-cart-plus"></i>
+                                                افزودن به سبد
+                                            </button>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-6 col-lg-3" data-category="mobile">
+                                <div class="product-card">
+                                    <div class="product-badge">پرفروش</div>
+                                    <div class="product-image">
+                                        <img src="images/iPhone 17 Pro Max.jpg" alt="آیفون ۱۷ Pro" loading="lazy">
+                                    </div>
+                                    <div class="product-info">
+                                        <h5 class="product-title">آیفون ۱۷ Pro ZA/A</h5>
+                                        <p class="product-specs">۲۵۶ گیگابایت - ۱۲ گیگابایت رم</p>
+                                        <div class="product-price">
+                                            <span class="current-price">۶۲,۰۰۰,۰۰۰ تومان</span>
+                                        </div>
+                                        <div class="product-rating">
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            <i class="bi bi-star-half text-warning"></i>
+                                            <span class="rating-count">(۱۵۶)</span>
+                                        </div>
+                                        <button class="btn btn-add-to-cart" data-product="4">
+                                                <i class="bi bi-cart-plus"></i>
+                                                افزودن به سبد
+                                            </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="carousel-item">
+                        <div class="row g-4">
+
+                            <div class="col-md-6 col-lg-3" data-category="headphone">
+                                <div class="product-card">
+                                    <div class="product-badge">پرفروش</div>
+                                    <div class="product-image">
+                                        <img src="images/هندزفری انکر Soundcore P40i.jpg" alt="هندزفری انکر" loading="lazy">
+                                    </div>
+                                    <div class="product-info">
+                                        <h5 class="product-title">هندزفری انکر Soundcore P40i</h5>
+                                        <p class="product-specs">بلوتوث ۵.۳ - حذف نویز فعال</p>
+                                        <div class="product-price">
+                                            <span class="current-price">۳,۵۰۰,۰۰۰ تومان</span>
+                                        </div>
+                                        <div class="product-rating">
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            <i class="bi bi-star text-warning"></i>
+                                            <span class="rating-count">(۶۷)</span>
+                                        </div>
+                                        <button class="btn btn-add-to-cart" data-product="5">
+                                                <i class="bi bi-cart-plus"></i>
+                                                افزودن به سبد
+                                            </button>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-6 col-lg-3" data-category="watch">
+                                <div class="product-card">
+                                    <div class="product-badge">پرفروش</div>
+                                    <div class="product-image">
+                                        <img src="images/اپل واچ SE3 مدل ۴۴mm.png" alt="اپل واچ SE3" loading="lazy">
+                                    </div>
+                                    <div class="product-info">
+                                        <h5 class="product-title">اپل واچ SE3 مدل ۴۴mm</h5>
+                                        <p class="product-specs">GPS - همراه بند ورزشی</p>
+                                        <div class="product-price">
+                                            <span class="current-price">۱۸,۰۰۰,۰۰۰ تومان</span>
+                                        </div>
+                                        <div class="product-rating">
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            <i class="bi bi-star-half text-warning"></i>
+                                            <span class="rating-count">(۹۸)</span>
+                                        </div>
+                                        <button class="btn btn-add-to-cart" data-product="6">
+                                                <i class="bi bi-cart-plus"></i>
+                                                افزودن به سبد
+                                            </button>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-6 col-lg-3" data-category="laptop">
+                                <div class="product-card">
+                                    <div class="product-badge">پرفروش</div>
+                                    <div class="product-image">
+                                        <img src="images/لپ‌تاپ ایسر ۱۶ اینچ Aspire Lite.jpg" alt="لپ‌تاپ ایسر" loading="lazy">
+                                    </div>
+                                    <div class="product-info">
+                                        <h5 class="product-title">لپ‌تاپ ایسر ۱۶ اینچ Aspire Lite</h5>
+                                        <p class="product-specs">پردازنده i5 - ۱۶GB رم - ۵۱۲GB حافظه</p>
+                                        <div class="product-price">
+                                            <span class="current-price">۴۲,۰۰۰,۰۰۰ تومان</span>
+                                        </div>
+                                        <div class="product-rating">
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            <i class="bi bi-star text-warning"></i>
+                                            <span class="rating-count">(۴۵)</span>
+                                        </div>
+                                        <button class="btn btn-add-to-cart" data-product="7">
+                                                <i class="bi bi-cart-plus"></i>
+                                                افزودن به سبد
+                                            </button>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-6 col-lg-3" data-category="headphone">
+                                <div class="product-card">
+                                    <div class="product-badge">پرفروش</div>
+                                    <div class="product-image">
+                                        <img src="images/هندزفری شیائومی Redmi Buds 6 Active.jpg" alt="هندزفری شیائومی" loading="lazy">
+                                    </div>
+                                    <div class="product-info">
+                                        <h5 class="product-title">هندزفری شیائومی Redmi Buds 6 Active</h5>
+                                        <p class="product-specs">بلوتوث ۵.۳ - مقاوم در برابر آب</p>
+                                        <div class="product-price">
+                                            <span class="current-price">۲,۸۰۰,۰۰۰ تومان</span>
+                                        </div>
+                                        <div class="product-rating">
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            <i class="bi bi-star-fill text-warning"></i>
+                                            <i class="bi bi-star text-warning"></i>
+                                            <span class="rating-count">(۱۷۸)</span>
+                                        </div>
+                                        <button class="btn btn-add-to-cart" data-product="8">
+                                                <i class="bi bi-cart-plus"></i>
+                                                افزودن به سبد
+                                            </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#bestSellingCarousel" data-bs-slide="prev">
+                        <i class="bi bi-chevron-right fs-2"></i>
+                    </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#bestSellingCarousel" data-bs-slide="next">
+                        <i class="bi bi-chevron-left fs-2"></i>
+                    </button>
+            </div>
+
+
+            <div class="carousel-indicators-wrapper mt-4">
+                <button type="button" data-bs-target="#bestSellingCarousel" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#bestSellingCarousel" data-bs-slide-to="1"></button>
+            </div>
+        </div>
+        </div>
+    </section>
+
+
+    <section class="brands-section py-4">
+        <div class="container">
+            <div class="brands-box">
+                <div class="brands-grid">
+
+                    <a href="404.html" class="brand-item">
+                        <img src="images/4photoshop-Asus-vector-logo-لوگو-ایسوس-300x165.jpg" alt="ایسوس">
+                        <span class="brand-name-small">ایسوس</span>
+                    </a>
+
+                    <a href="404.html" class="brand-item">
+                        <img src="images/4photoshop-Lenovo-vector-logo-لوگو-لنوو.jpg" alt="لنوا">
+                        <span class="brand-name-small">لنوا</span>
+                    </a>
+
+                    <a href="404.html" class="brand-item">
+                        <img src="images/Logo_samsung_5.jpg" alt="سامسونگ">
+                        <span class="brand-name-small">سامسونگ</span>
+                    </a>
+
+                    <a href="404.html" class="brand-item">
+                        <img src="images/apple-logo-1.png" alt="آیفون">
+                        <span class="brand-name-small">آیفون</span>
+                    </a>
+
+                    <a href="404.html" class="brand-item">
+                        <img src="images/images22.png" alt="شیائومی">
+                        <span class="brand-name-small">شیائومی</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="novin-off-section py-5">
+        <div class="container">
+            <div class="novin-off-header">
+                <div class="novin-off-heading">
+                    <h2 class="novin-off-title mb-2">
+                        <i class="bi bi-lightning-charge-fill"></i> نوین‌آف ویژه
+                    </h2>
+                    <p class="novin-off-subtitle">تخفیف‌های شگفت‌انگیز - فقط تا پایان زمان باقی‌مانده</p>
+                </div>
+                <div class="timer-box">
+                    <div class="timer-label">زمان باقی‌مانده</div>
+                    <div class="timer-numbers" id="novinTimer">۰۲:۴۵:۱۸</div>
+                </div>
+            </div>
+            <div class="novin-off-carousel-wrapper">
+                <div id="novinOffCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="10000">
+                    <div class="carousel-inner">
+
+                        <div class="carousel-item active">
+                            <div class="row g-4">
+
+                                <div class="col-md-6 col-lg-3">
+                                    <div class="novin-off-card">
+                                        <div class="off-badge">۲۰٪</div>
+                                        <div class="product-image">
+                                            <img src="images/iphone 17 chla.jpg" alt="آیفون ۱۷" loading="lazy">
+                                        </div>
+                                        <div class="product-info">
+                                            <h5 class="product-title">آیفون ۱۷ CH/A</h5>
+                                            <p class="product-specs">۲۵۶ گیگابایت - ۸ گیگابایت رم</p>
+                                            <div class="product-price">
+                                                <span class="old-price">۴۵,۰۰۰,۰۰۰ تومان</span><br>
+                                                <span class="new-price">۳۶,۰۰۰,۰۰۰ تومان</span>
+                                            </div>
+                                            <button class="btn btn-add-to-cart" data-product="9">
+                                                <i class="bi bi-cart-plus"></i>
+                                                افزودن به سبد
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-6 col-lg-3">
+                                    <div class="novin-off-card">
+                                        <div class="off-badge">۱۵٪</div>
+                                        <div class="product-image"> <img src="images/Presentation1.jpg" alt="سامسونگ S25 Ultra" loading="lazy"> </div>
+                                        <div class="product-info">
+                                            <h5 class="product-title">سامسونگ Galaxy S25 Ultra</h5>
+                                            <p class="product-specs">۲۵۶ گیگابایت - ۱۲ گیگابایت رم</p>
+                                            <div class="product-price"> <span class="old-price">۵۲,۰۰۰,۰۰۰ تومان</span><br> <span class="new-price">۴۴,۲۰۰,۰۰۰ تومان</span> </div> <button class="btn btn-add-to-cart" data-product="10"> <i class="bi bi-cart-plus"></i> افزودن به سبد </button>                                            </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 col-lg-3">
+                                    <div class="novin-off-card">
+                                        <div class="off-badge">۱۸٪</div>
+                                        <div class="product-image">
+                                            <img src="images/iphone16_PNG13.png" alt="آیفون ۱۶ Pro Max" loading="lazy">
+                                        </div>
+                                        <div class="product-info">
+                                            <h5 class="product-title">آیفون ۱۶ Pro Max ZA/A</h5>
+                                            <p class="product-specs">۲۵۶ گیگابایت - ۸ گیگابایت رم</p>
+                                            <div class="product-price">
+                                                <span class="old-price">۵۸,۰۰۰,۰۰۰ تومان</span><br>
+                                                <span class="new-price">۴۷,۵۶۰,۰۰۰ تومان</span>
+                                            </div>
+                                            <button class="btn btn-add-to-cart" data-product="11">
+                                            <i class="bi bi-cart-plus"></i>
+                                            افزودن به سبد
+                                        </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-6 col-lg-3">
+                                    <div class="novin-off-card">
+                                        <div class="off-badge">۲۲٪</div>
+                                        <div class="product-image">
+                                            <img src="images/45d27d35def57110809a9709f8e4ae67977f3880_1757769767.jpg" alt="آیفون ۱۷ Pro" loading="lazy">
+                                        </div>
+                                        <div class="product-info">
+                                            <h5 class="product-title">آیفون ۱۷ Pro ZA/A</h5><br>
+                                            <p class="product-specs">۲۵۶ گیگابایت - ۱۲ گیگابایت رم</p>
+                                            <div class="product-price"> <span class="old-price">۶۲,۰۰۰,۰۰۰ تومان</span> <br>
+                                                <span class="new-price">۴۸,۳۶۰,۰۰۰ تومان</span>
+                                            </div> <button class="btn btn-add-to-cart" data-product="12">
+                                             <i class="bi bi-cart-plus"></i> افزودن به سبد </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="row g-4">
+
+                                <div class="col-md-6 col-lg-3">
+                                    <div class="novin-off-card">
+                                        <div class="off-badge">۳۰٪</div>
+                                        <div class="product-image">
+                                            <img src="images/هندزفری انکر Soundcore P40i.jpg" alt="هندزفری انکر" loading="lazy">
+                                        </div>
+                                        <div class="product-info">
+                                            <h5 class="product-title">هندزفری انکر Soundcore P40i</h5>
+                                            <p class="product-specs">بلوتوث ۵.۳ - حذف نویز فعال</p>
+                                            <div class="product-price">
+                                                <span class="old-price">۳,۵۰۰,۰۰۰ تومان</span><br>
+                                                <span class="new-price">۲,۴۵۰,۰۰۰ تومان</span>
+                                            </div>
+                                            <button class="btn btn-add-to-cart" data-product="13">
+                                        <i class="bi bi-cart-plus"></i>
+                                        افزودن به سبد
+                                    </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-6 col-lg-3">
+                                    <div class="novin-off-card">
+                                        <div class="off-badge">۲۵٪</div>
+                                        <div class="product-image">
+                                            <img src="images/اپل واچ SE3 مدل ۴۴mm.jpg" alt="اپل واچ SE3" loading="lazy">
+                                        </div>
+                                        <div class="product-info">
+                                            <h5 class="product-title">اپل واچ SE3 مدل ۴۴mm</h5>
+                                            <p class="product-specs">GPS - همراه بند ورزشی</p>
+                                            <div class="product-price">
+                                                <span class="old-price">۱۸,۰۰۰,۰۰۰ تومان</span><br>
+                                                <span class="new-price">۱۳,۵۰۰,۰۰۰ تومان</span>
+                                            </div>
+                                            <button class="btn btn-add-to-cart" data-product="14">
+                                        <i class="bi bi-cart-plus"></i>
+                                        افزودن به سبد
+                                    </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-6 col-lg-3">
+                                    <div class="novin-off-card">
+                                        <div class="off-badge">۲۰٪</div>
+                                        <div class="product-image">
+                                            <img src="images/لپ‌تاپ ایسر ۱۶ اینچ Aspire Lite2.jpg" alt="لپ‌تاپ ایسر" loading="lazy">
+                                        </div>
+                                        <div class="product-info">
+                                            <h5 class="product-title">لپ‌تاپ ایسر ۱۶ اینچ Aspire Lite</h5>
+                                            <p class="product-specs">پردازنده i5 - ۱۶GB رم - ۵۱۲GB حافظه</p>
+                                            <div class="product-price">
+                                                <span class="old-price">۴۲,۰۰۰,۰۰۰ تومان</span><br>
+                                                <span class="new-price">۳۳,۶۰۰,۰۰۰ تومان</span>
+                                            </div>
+                                            <button class="btn btn-add-to-cart" data-product="15">
+                                        <i class="bi bi-cart-plus"></i>
+                                        افزودن به سبد
+                                    </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-6 col-lg-3">
+                                    <div class="novin-off-card">
+                                        <div class="off-badge">۳۵٪</div>
+                                        <div class="product-image">
+                                            <img src="images/Redmi-Buds-6-1.jpg" alt="هندزفری شیائومی" loading="lazy">
+                                        </div>
+                                        <div class="product-info">
+                                            <h5 class="product-title">هندزفری شیائومی Redmi Buds 6 Active</h5>
+                                            <p class="product-specs">بلوتوث ۵.۳ - مقاوم در برابر آب</p>
+                                            <div class="product-price">
+                                                <span class="old-price">۲,۸۰۰,۰۰۰ تومان</span><br>
+                                                <span class="new-price">۱,۸۲۰,۰۰۰ تومان</span>
+                                            </div>
+                                            <button class="btn btn-add-to-cart" data-product="16">
+                                        <i class="bi bi-cart-plus"></i>
+                                        افزودن به سبد
+                                    </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <button class="carousel-control-prev" type="button" data-bs-target="#novinOffCarousel" data-bs-slide="prev">
+                <i class="bi bi-chevron-right fs-3"></i>
+            </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#novinOffCarousel" data-bs-slide="next">
+                <i class="bi bi-chevron-left fs-3"></i>
+            </button>
+                </div>
+
+
+                <div class="text-center mt-4">
+                    <div class="carousel-indicators-custom">
+                        <button type="button" data-bs-target="#novinOffCarousel" data-bs-slide-to="0" class="active" aria-current="true"></button>
+                        <button type="button" data-bs-target="#novinOffCarousel" data-bs-slide-to="1"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="training-section">
+        <div class="container">
+            <div class="training-header">
+                <h2 class="training-title">مرکز آموزش نوین دیجیتال</h2>
+                <p class="training-subtitle">یادگیری تخصصی نرم‌افزار و سخت‌افزار دیجیتال</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="training-card">
+                        <div class="training-icon">
+                            <i class="bi bi-phone"></i>
+                        </div>
+                        <h5 class="card-title">آموزش تعمیرات موبایل و تبلت</h5>
+                        <p class="card-desc">
+                            دوره تخصصی تعمیرات انواع موبایل و تبلت با جدیدترین متدهای آموزشی.
+                        </p>
+                        <div class="training-meta">
+                            <span><i class="bi bi-clock"></i> ۲۴ ساعت</span>
+                            <span><i class="bi bi-calendar"></i> ۸ هفته</span>
+                        </div>
+                        <a href="blog archive.html" class="btn btn-training">مشاهده دوره</a>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="training-card">
+                        <div class="training-icon">
+                            <i class="bi bi-laptop"></i>
+                        </div>
+                        <h5 class="card-title">آموزش تعمیرات لپ‌تاپ</h5>
+                        <p class="card-desc">
+                            آموزش جامع تعمیرات لپ‌تاپ از سطح مبتدی تا پیشرفته با تمرین عملی.
+                        </p>
+                        <div class="training-meta">
+                            <span><i class="bi bi-clock"></i> ۴۸ ساعت</span>
+                            <span><i class="bi bi-calendar"></i> ۱۲ هفته</span>
+                        </div>
+                        <a href="blog archive.html" class="btn btn-training">مشاهده دوره</a>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="training-card">
+                        <div class="training-icon">
+                            <i class="bi bi-headphones"></i>
+                        </div>
+                        <h5 class="card-title">آموزش تعمیرات لوازم جانبی</h5>
+                        <p class="card-desc">
+                            آموزش تعمیرات هدفون، اسپیکر، پاوربانک و دیگر لوازم جانبی.
+                        </p>
+                        <div class="training-meta">
+                            <span><i class="bi bi-clock"></i> ۲۰ ساعت</span>
+                            <span><i class="bi bi-calendar"></i> ۶ هفته</span>
+                        </div>
+                        <a href="blog.html" class="btn btn-training">مشاهده دوره</a>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="training-card">
+                        <div class="training-icon">
+                            <i class="bi bi-wifi"></i>
+                        </div>
+                        <h5 class="card-title">آموزش تعمیرات مودم و شبکه</h5>
+                        <p class="card-desc">
+                            آموزش تخصصی تعمیرات مودم، روتر و تجهیزات شبکه.
+                        </p>
+                        <div class="training-meta">
+                            <span><i class="bi bi-clock"></i> ۱۶ ساعت</span>
+                            <span><i class="bi bi-calendar"></i> ۴ هفته</span>
+                        </div>
+                        <a href="blog archive.html" class="btn btn-training">مشاهده دوره</a>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="training-card">
+                        <div class="training-icon">
+                            <i class="bi bi-cpu"></i>
+                        </div>
+                        <h5 class="card-title">آموزش تعمیرات مادربرد</h5>
+                        <p class="card-desc">
+                            دوره پیشرفته تعمیرات مادربرد با آموزش قطعات SMD.
+                        </p>
+                        <div class="training-meta">
+                            <span><i class="bi bi-clock"></i> ۳۶ ساعت</span>
+                            <span><i class="bi bi-calendar"></i> ۱۰ هفته</span>
+                        </div>
+                        <a href="blog archive.html" class="btn btn-training">مشاهده دوره</a>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="training-card">
+                        <div class="training-icon">
+                            <i class="bi bi-tools"></i>
+                        </div>
+                        <h5 class="card-title">کارگاه عملی تعمیرات</h5>
+                        <p class="card-desc">
+                            کارگاه عملی تعمیرات با جدیدترین ابزارها و تجهیزات تخصصی.
+                        </p>
+                        <div class="training-meta">
+                            <span><i class="bi bi-clock"></i> ۶۰ ساعت</span>
+                            <span><i class="bi bi-calendar"></i> ۱۶ هفته</span>
+                        </div>
+                        <a href="blog archive.html" class="btn btn-training">مشاهده دوره</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-5">
+                <a href="blog.html" class="btn btn-all-trainings">
+                    <i class="bi bi-book me-2"></i> مشاهده تمام دوره‌های آموزشی
+                </a>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- ==================== FAQ حرفه‌ای ==================== -->
+    <section class="faq-section py-5">
+        <div class="container">
+            <div class="section-header text-center mb-5">
+                <h2 class="section-title">سوالات متداول</h2>
+                <p class="section-subtitle">پاسخ به پرتکرارترین سوالات شما</p>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="accordion" id="faqAccordion">
+                        <!-- سوال ۱ -->
+                        <div class="accordion-item mb-3">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                            <i class="bi bi-shield-check me-3 text-primary"></i>
+                            <span class="fw-bold">شرایط گارانتی محصولات چگونه است؟</span>
+                        </button>
+                            </h3>
+                            <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <div class="faq-answer">
+                                        <p>تمام محصولات نوین دیجیتال با <strong>گارانتی اصلی و معتبر</strong> ارائه می‌شوند:</p>
+                                        <ul class="faq-list">
+                                            <li>📱 <strong>موبایل و تبلت:</strong> ۱۲ ماه گارانتی</li>
+                                            <li>💻 <strong>لپ‌تاپ و کامپیوتر:</strong> ۲۴ ماه گارانتی</li>
+                                            <li>🎧 <strong>لوازم جانبی:</strong> ۶ تا ۱۲ ماه گارانتی</li>
+                                        </ul>
+                                        <p class="mb-0">برای فعال‌سازی گارانتی، کافی است شماره سریال محصول را در سایت گارانتی‌دهنده ثبت کنید.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- سوال ۲ -->
+                        <div class="accordion-item mb-3">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                            <i class="bi bi-truck me-3 text-primary"></i>
+                            <span class="fw-bold">مدت زمان ارسال سفارش چقدر است؟</span>
+                        </button>
+                            </h3>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <div class="faq-answer">
+                                        <div class="shipping-info">
+                                            <div class="shipping-item mb-3">
+                                                <h6><i class="bi bi-geo-alt-fill text-success me-2"></i> تهران و کرج</h6>
+                                                <p class="mb-0">📦 تحویل در <strong>همان روز</strong> (برای سفارش‌های قبل از ۱۴:۰۰)</p>
+                                            </div>
+                                            <div class="shipping-item mb-3">
+                                                <h6><i class="bi bi-geo-alt-fill text-warning me-2"></i> سایر شهرستان‌ها</h6>
+                                                <p class="mb-0">📦 تحویل در <strong>۲ تا ۳ روز کاری</strong></p>
+                                            </div>
+                                            <div class="alert alert-info mt-3">
+                                                <i class="bi bi-info-circle me-2"></i> امکان رهگیری آنلاین سفارش از طریق کد پیگیری ارائه شده وجود دارد.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- سوال ۳ -->
+                        <div class="accordion-item mb-3">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                            <i class="bi bi-credit-card me-3 text-primary"></i>
+                            <span class="fw-bold">امکان خرید اقساطی وجود دارد؟</span>
+                        </button>
+                            </h3>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <div class="faq-answer">
+                                        <p>بله! با همکاری بانک‌های معتبر کشور امکان خرید اقساطی فراهم است:</p>
+                                        <div class="row mt-3">
+                                            <div class="col-md-6">
+                                                <div class="installment-plan p-3 mb-3">
+                                                    <h6><i class="bi bi-calendar-check me-2"></i> اقساط ۶ ماهه</h6>
+                                                    <p class="small mb-0">پیش‌پرداخت: ۳۰٪ - سود: ۱۸٪</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="installment-plan p-3 mb-3">
+                                                    <h6><i class="bi bi-calendar-check me-2"></i> اقساط ۱۲ ماهه</h6>
+                                                    <p class="small mb-0">پیش‌پرداخت: ۳۰٪ - سود: ۲۲٪</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <a href="installment.html" class="btn btn-outline-primary btn-sm mt-2">مشاهده شرایط کامل</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- سوال ۴ -->
+                        <div class="accordion-item mb-3">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                            <i class="bi bi-clock-history me-3 text-primary"></i>
+                            <span class="fw-bold">چگونه سفارشم را پیگیری کنم؟</span>
+                        </button>
+                            </h3>
+                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <div class="faq-answer">
+                                        <p>۳ روش ساده برای پیگیری سفارش:</p>
+                                        <ol class="faq-list">
+                                            <li><strong>کد رهگیری:</strong> کد ارسال شده به پیامک شما را در بخش <a href="order-track.html">پیگیری سفارش</a> وارد کنید.</li>
+                                            <li><strong>پنل کاربری:</strong> پس از ورود به حساب کاربری، وضعیت سفارش را مشاهده کنید.</li>
+                                            <li><strong>تماس تلفنی:</strong> با شماره ۰۲۵-۳۶۷۰۷۵۷۰ تماس بگیرید.</li>
+                                        </ol>
+                                        <div class="tracking-example mt-3 p-3 bg-light rounded">
+                                            <p class="mb-0"><i class="bi bi-info-circle me-2"></i> کد رهگیری شما: <code>ND-2024-۱۲۵۴۷۸</code></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- سوال ۵ -->
+                        <div class="accordion-item">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                            <i class="bi bi-arrow-return-left me-3 text-primary"></i>
+                            <span class="fw-bold">شرایط بازگشت کالا چگونه است؟</span>
+                        </button>
+                            </h3>
+                            <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <div class="faq-answer">
+                                        <p>سیاست بازگشت کالا در نوین دیجیتال:</p>
+                                        <div class="return-conditions">
+                                            <div class="condition-item mb-2">
+                                                <span class="badge bg-success me-2">✓</span>
+                                                <span>تا <strong>۷ روز</strong> پس از تحویل</span>
+                                            </div>
+                                            <div class="condition-item mb-2">
+                                                <span class="badge bg-success me-2">✓</span>
+                                                <span>محصول باید <strong>دست نخورده</strong> باشد</span>
+                                            </div>
+                                            <div class="condition-item mb-2">
+                                                <span class="badge bg-success me-2">✓</span>
+                                                <span>بسته‌بندی <strong>کامل و سالم</strong> باشد</span>
+                                            </div>
+                                            <div class="condition-item">
+                                                <span class="badge bg-success me-2">✓</span>
+                                                <span>فاقد هرگونه <strong>خط و خش</strong></span>
+                                            </div>
+                                        </div>
+                                        <div class="alert alert-warning mt-3">
+                                            <i class="bi bi-exclamation-triangle me-2"></i> محصولات مصرف‌شده (مثل هدفون) قابل بازگشت نیستند.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-center mt-5">
+                        <a href="faq.html" class="btn btn-more-faq">
+                            <i class="bi bi-question-circle me-2"></i> مشاهده سوالات بیشتر
+                            <i class="bi bi-arrow-left ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== فوتر ==================== -->
+    <footer class="novin-footer py-5">
+        <div class="container">
+            <div class="row">
+                <!-- اطلاعات تماس -->
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-brand mb-3">
+                        <h5 class="mt-2 mb-1">نوین دیجیتال</h5>
+                        <p class="footer-tagline small">فروشگاه تخصصی محصولات دیجیتال</p>
+                    </div>
+                    <p class="footer-desc small mb-3">
+                        با بیش از یک دهه تجربه در زمینه واردات و فروش محصولات دیجیتال، ارائه کننده بهترین برندها با گارانتی اصلی و پشتیبانی ۲۴ ساعته.
+                    </p>
+                    <div class="footer-contact">
+                        <div class="contact-item">
+                            <i class="bi bi-telephone"></i>
+                            <span class="small">۰۲۵-۳۶۷۰۷۵۷۰</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="bi bi-phone"></i>
+                            <span class="small">۰۹۱۹۶۹۲۱۹۰۲</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="bi bi-geo-alt"></i>
+                            <span class="small">قم، خیابان آذر، پلاک ۱۲</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="bi bi-clock"></i>
+                            <span class="small">شنبه تا پنجشنبه: ۹ صبح تا ۹ شب</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- لینک‌های سریع -->
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h6 class="footer-heading mb-3">لینک‌های سریع</h6>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="bi bi-house-door me-1"></i> خانه</a></li>
+                        <li><a href="product archive.html"><i class="bi bi-grid me-1"></i> محصولات</a></li>
+                        <li><a href="blog.html"><i class="bi bi-newspaper me-1"></i> بلاگ</a></li>
+                        <li><a href="about.html"><i class="bi bi-info-circle me-1"></i> درباره ما</a></li>
+                        <li><a href="contact.html"><i class="bi bi-envelope me-1"></i> تماس با ما</a></li>
+                    </ul>
+                </div>
+
+                <!-- خدمات -->
+                <div class="col-lg-3 col-md-4 mb-4">
+                    <h6 class="footer-heading mb-3">خدمات مشتریان</h6>
+                    <ul class="footer-links">
+                        <li><a href="installment.html"><i class="bi bi-credit-card me-1"></i> خرید اقساطی</a></li>
+                        <li><a href="privacy.html"><i class="bi bi-shield-check me-1"></i>قوانین و مقررات</a></li>
+                        <li><a href="faq.html"><i class="bi bi-truck me-1"></i> شرایط ارسال</a></li>
+                        <li><a href="404.html"><i class="bi bi-arrow-return-left me-1"></i> بازگرداندن کالا</a></li>
+                        <li><a href="faq.html"><i class="bi bi-question-circle me-1"></i> سوالات متداول</a></li>
+                    </ul>
+                </div>
+
+                <!-- شبکه‌های اجتماعی -->
+                <div class="col-lg-3 col-md-4 mb-4">
+                    <h6 class="footer-heading mb-3">ما را دنبال کنید</h6>
+                    <div class="social-links mb-4">
+                        <a href="https://instagram.com/novindigital" target="_blank" class="social-link instagram">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="https://t.me/novindigital" target="_blank" class="social-link telegram">
+                            <i class="bi bi-telegram"></i>
+                        </a>
+                        <a href="https://wa.me/989196921902" target="_blank" class="social-link whatsapp">
+                            <i class="bi bi-whatsapp"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@novindigital" target="_blank" class="social-link youtube">
+                            <i class="bi bi-youtube"></i>
+                        </a>
+                        <a href="https://www.aparat.com/novindigital" target="_blank" class="social-link aparat">
+                            <i class="bi bi-camera-video"></i>
+                        </a>
+                    </div>
+
+                    <div class="newsletter">
+                        <h6 class="newsletter-title mb-2">عضویت در خبرنامه</h6>
+                        <p class="newsletter-desc small mb-2">از جدیدترین تخفیف‌ها و محصولات با خبر شوید</p>
+                        <div class="input-group input-group-sm">
+                            <input type="email" class="form-control" placeholder="آدرس ایمیل شما" id="newsletterEmail">
+                            <button class="btn btn-newsletter" type="button" id="newsletterSubscribe">
+                        <i class="bi bi-send"></i>
+                    </button>
+                        </div>
+                        <p class="newsletter-note extra-small mt-2">هفته‌ای یک ایمیل مفید دریافت خواهید کرد</p>
+                    </div>
+
+                    <!-- اعتماد نمادها -->
+                    <div class="trust-badges mt-3">
+                        <img src="images/نماد الکترونیک.png" alt="نماد اعتماد الکترونیکی" class="trust-badge me-2" style="height: 40px;">
+                    </div>
+                </div>
+            </div>
+
+            <hr class="footer-divider my-4">
+
+            <div class="footer-bottom text-center">
+                <div class="row align-items-center">
+                    <div class="col-md-6 mb-2 mb-md-0">
+                        <p class="copyright small mb-0">
+                            © ۱۴۰۳ نوین دیجیتال — تمامی حقوق محفوظ است.
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="designer small mb-0">
+                            <i class="bi bi-code-slash me-1"></i> طراحی و توسعه: محدثه اسلامی
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- لودینگ صفحه -->
+    <div class="novin-page-loader" id="pageLoader">
+        <div class="loader-container">
+            <div class="loader-logo">
+                <img src="images/بدون بک.png" alt="نوین دیجیتال">
+                <span class="logo-text">NovinDigital</span>
+            </div>
+
+            <div class="loader-animation">
+                <div class="orbit">
+                    <div class="electron"></div>
+                    <div class="electron"></div>
+                    <div class="electron"></div>
+                </div>
+                <div class="core"></div>
+            </div>
+
+            <div class="loader-progress">
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+                <div class="progress-text">
+                    <span class="percentage">۰٪</span>
+                    <span class="message">در حال آماده‌سازی فروشگاه...</span>
+                </div>
+            </div>
+
+            <div class="loader-tips">
+                <div class="tip">
+                    <i class="bi bi-lightning-charge"></i> در حال بارگذاری جدیدترین محصولات
+                </div>
+                <div class="tip">
+                    <i class="bi bi-shield-check"></i> بررسی گارانتی‌های معتبر
+                </div>
+                <div class="tip">
+                    <i class="bi bi-truck"></i> آماده‌سازی سیستم ارسال
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 🔹 دکمه اسکرول به بالا -->
+    <button class="scroll-to-top" id="scrollToTop" title="برو به بالا">
+    <i class="bi bi-chevron-up"></i>
+</button>
+
+    <!-- اسکریپت‌ها -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // 🔹 راه‌اندازی سیستم نوین دیجیتال
+        document.addEventListener('DOMContentLoaded', function() {
+            // 1. اسکرول به بالا
+            initScrollToTop();
+
+            // 2. تایمر تخفیف‌ها
+            initNovinTimer();
+
+            // 3. فیلتر محصولات
+            initProductFilters();
+
+            // 4. سیستم سبد خرید
+            initCartSystem();
+
+            // 5. Toast Notifications
+            initToastSystem();
+
+            // 6. Loading Overlay
+            initLoadingOverlay();
+
+            // 7. جستجوی پیشرفته
+            initAdvancedSearch();
+
+            console.log('🚀 نوین دیجیتال راه‌اندازی شد!');
+        });
+    </script>
+</body>
+
+</html>

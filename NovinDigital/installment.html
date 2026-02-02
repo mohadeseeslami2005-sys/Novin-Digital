@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خرید اقساطی | نوین دیجیتال</title>
+
+    <!-- فونت وزیرمتن -->
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+    <!-- Bootstrap 5 RTL -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- استایل اختصاصی -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- استایل صفحه اقساطی -->
+    <link rel="stylesheet" href="css/installment.css">
+
+    <!-- متا تگ‌های SEO -->
+    <meta name="description" content="خرید اقساطی محصولات دیجیتال با بهترین شرایط از نوین دیجیتال">
+    <meta name="keywords" content="خرید اقساطی موبایل, خرید قسطی لپ‌تاپ, اقساط تبلت, خرید اقساطی بدون ضامن">
+    <meta name="author" content="نوین دیجیتال">
+</head>
+
+<body>
+    <!-- 🔹 مودال‌ها (همانند صفحه اصلی) -->
+    <div class="modal novin-modal fade" id="cartModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title"><i class="bi bi-cart-check me-2"></i> سبد خرید شما</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <div class="empty-cart text-center py-5" id="emptyCartMessage">
+                        <i class="bi bi-cart-x text-muted display-4 mb-3"></i>
+                        <h6 class="text-muted mb-2">سبد خرید شما خالی است</h6>
+                        <a href="products.html" class="btn btn-primary mt-2">
+                            <i class="bi bi-bag me-1"></i>مشاهده محصولات
+                        </a>
+                    </div>
+                    <div class="cart-items" id="cartItemsContainer" style="display: none;">
+                        <div class="cart-item-list" id="cartItemList">
+                            <!-- آیتم‌های سبد خرید -->
+                        </div>
+                        <div class="cart-summary p-4 border-top">
+                            <div class="row">
+                                <div class="col-6">
+                                    <h6 class="mb-0">جمع کل:</h6>
+                                </div>
+                                <div class="col-6 text-start">
+                                    <h5 class="text-danger mb-0" id="cartTotal">۰ تومان</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">بستن</button>
+                    <a href="checkout.html" class="btn btn-success" id="checkoutBtn" style="display: none;">
+                        <i class="bi bi-credit-card me-1"></i>ثبت سفارش
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== هدر ==================== -->
+    <nav class="navbar navbar-expand-lg navbar-dark novin-header sticky-top">
+        <div class="container">
+            <!-- سمت راست: لوگو و منو -->
+            <div class="d-flex align-items-center">
+                <!-- لوگو + نام -->
+                <a class="navbar-brand d-flex align-items-center me-3" href="index.html">
+                    <img src="images/بدون بک.png" alt="نوین دیجیتال" class="logo-img">
+                    <span class="brand-name me-2">NovinDigital</span>
+                </a>
+
+                <!-- دکمه همبرگری -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- منوی اصلی -->
+                <div class="collapse navbar-collapse" id="navbarContent">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="index.html">خانه</a>
+                        </li>
+
+                        <!-- منوی محصولات -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                                محصولات
+                            </a>
+                            <ul class="dropdown-menu">
+
+                                <li><a class="dropdown-item fw-bold" href="product archive.html">آرشیو محصولات</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- منوی بلاگ -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                                بلاگ
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="blog.html">مقالات جدید</a></li>
+                                <li><a class="dropdown-item" href="blog archive.html">آرشیو بلاگ</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">درباره ما</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="installment.html">خرید اقساطی</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+
+            <!-- وسط: فضای خالی -->
+            <div class="d-none d-lg-flex flex-grow-1"></div>
+
+            <!-- سمت چپ: آیکون‌ها -->
+            <div class="nav-icons d-flex align-items-center">
+                <!-- جستجو -->
+                <button class="nav-icon me-2" type="button" data-bs-toggle="modal" data-bs-target="#searchModal" title="جستجو">
+                    <i class="bi bi-search"></i>
+                </button>
+
+                <!-- کاربر با dropdown -->
+                <div class="dropdown me-2">
+                    <button class="nav-icon dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                        <i class="bi bi-person"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="login.html">ورود</a></li>
+                        <li><a class="dropdown-item" href="register.html">ثبت‌نام</a></li>
+                        <li>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- علاقه‌مندی -->
+                <a href="404.html" class="nav-icon me-2 position-relative" title="علاقه‌مندی‌ها">
+                    <i class="bi bi-heart"></i>
+                    <span class="icon-badge">۳</span>
+                </a>
+
+                <!-- سبد خرید -->
+                <button class="nav-icon position-relative" type="button" data-bs-toggle="modal" data-bs-target="#cartModal" title="سبد خرید">
+                    <i class="bi bi-cart"></i>
+                    <span class="icon-badge" id="cartCountBadge">۲</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+    <!-- ==================== دکمه اقدام سریع ==================== -->
+    <section class="cta-section py-5">
+        <div class="container">
+            <div class="cta-card">
+                <div class="row align-items-center">
+                    <div class="col-lg-8">
+                        <h3 class="cta-title">آماده خرید اقساطی هستید؟</h3>
+                        <p class="cta-text">محصول مورد نظر خودرا انتخاب کنید و درخواست خرید اقساطی دهید. کارشناسان ما در اسرع وقت با شما تماس خواهند گرفت.</p>
+                    </div>
+                    <div class="col-lg-4 text-lg-start text-center">
+                        <div class="cta-buttons">
+                            <a href="#plans" class="btn btn-light btn-lg me-2 mb-2">
+                                <i class="bi bi-bag me-2"></i>مشاهده طرح ها
+                            </a>
+                            <a href="#calculator" class="btn btn-light btn-lg me-2 mb-2">
+                                <i class="bi bi-bag me-2"></i>مشاهده ماشین حساب
+                            </a>
+                            <button class="btn btn-warning btn-lg" data-bs-toggle="modal" data-bs-target="#quickRequestModal">
+<i class="bi bi-lightning me-2"></i>درخواست فوری
+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== مزایای خرید اقساطی ==================== -->
+    <section class="benefits-section py-5">
+        <div class="container">
+            <div class="section-header text-center mb-5">
+                <h2 class="section-title">چرا خرید اقساطی از نوین دیجیتال؟</h2>
+                <p class="section-subtitle">مزایای منحصر به فرد خرید قسطی از ما</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="bi bi-shield-check"></i>
+                        </div>
+                        <h4>بدون ضامن</h4>
+                        <p>نیاز به معرفی ضامن ندارید. فقط با کارت ملی و یک فیش حقوقی می‌توانید خرید کنید.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="bi bi-speedometer2"></i>
+                        </div>
+                        <h4>تایید سریع</h4>
+                        <p>درخواست شما حداکثر تا ۲۴ ساعت کاری بررسی و تایید می‌شود.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="bi bi-percent"></i>
+                        </div>
+                        <h4>سود کم</h4>
+                        <p>با کمترین سود بانکی (۱۸٪ تا ۲۴٪) محصولات را اقساطی بخرید.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="bi bi-truck"></i>
+                        </div>
+                        <h4>تحویل فوری</h4>
+                        <p>پس از تایید درخواست، محصول در سریع‌ترین زمان به دست شما می‌رسد.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== طرح‌های اقساطی ==================== -->
+    <section id="plans" class="plans-section py-5 bg-light">
+        <div class="container">
+            <div class="section-header text-center mb-5">
+                <h2 class="section-title">طرح‌های اقساطی ویژه</h2>
+                <p class="section-subtitle">انتخاب بهترین طرح متناسب با بودجه شما</p>
+            </div>
+
+            <div class="row justify-content-center g-4">
+                <!-- طرح ۶ ماهه -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="plan-card popular">
+                        <div class="plan-header">
+                            <span class="plan-badge">محبوب</span>
+                            <h3 class="plan-title">طرح ۶ ماهه</h3>
+                            <div class="plan-price">
+                                <span class="price">سود ۱۸٪</span>
+                                <small>سالانه</small>
+                            </div>
+                        </div>
+                        <div class="plan-body">
+                            <ul class="plan-features">
+                                <li><i class="bi bi-check-circle-fill text-success"></i> پیش‌پرداخت ۳۰٪</li>
+                                <li><i class="bi bi-check-circle-fill text-success"></i> ۶ قسط ماهانه</li>
+                                <li><i class="bi bi-check-circle-fill text-success"></i> بدون کارمزد</li>
+                                <li><i class="bi bi-check-circle-fill text-success"></i> امکان تسویه زودتر</li>
+                                <li><i class="bi bi-check-circle-fill text-success"></i> پشتیبانی ویژه</li>
+                            </ul>
+
+                            <div class="example mt-4">
+                                <h6>مثال:</h6>
+                                <p class="mb-1">محصول ۱۰ میلیون تومانی</p>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <small>پیش‌پرداخت:</small>
+                                        <p class="fw-bold">۳,۰۰۰,۰۰۰ تومان</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <small>هر قسط:</small>
+                                        <p class="fw-bold text-success">۱,۳۰۰,۰۰۰ تومان</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="plan-footer">
+                            <button class="btn btn-primary w-100" onclick="selectPlan('6-month')">
+                                انتخاب این طرح
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- طرح ۱۲ ماهه -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="plan-card premium">
+                        <div class="plan-header">
+                            <span class="plan-badge">اقتصادی</span>
+                            <h3 class="plan-title">طرح ۱۲ ماهه</h3>
+                            <div class="plan-price">
+                                <span class="price">سود ۲۲٪</span>
+                                <small>سالانه</small>
+                            </div>
+                        </div>
+                        <div class="plan-body">
+                            <ul class="plan-features">
+                                <li><i class="bi bi-check-circle-fill text-success"></i> پیش‌پرداخت ۲۰٪</li>
+                                <li><i class="bi bi-check-circle-fill text-success"></i> ۱۲ قسط ماهانه</li>
+                                <li><i class="bi bi-check-circle-fill text-success"></i> بدون کارمزد</li>
+                                <li><i class="bi bi-check-circle-fill text-success"></i> بیمه محصول رایگان</li>
+                                <li><i class="bi bi-check-circle-fill text-success"></i> گارانتی اضافه</li>
+                            </ul>
+
+                            <div class="example mt-4">
+                                <h6>مثال:</h6>
+                                <p class="mb-1">محصول ۱۰ میلیون تومانی</p>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <small>پیش‌پرداخت:</small>
+                                        <p class="fw-bold">۲,۰۰۰,۰۰۰ تومان</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <small>هر قسط:</small>
+                                        <p class="fw-bold text-success">۷۸۰,۰۰۰ تومان</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="plan-footer">
+                            <button class="btn btn-success w-100" onclick="selectPlan('12-month')">
+                                انتخاب این طرح
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- طرح ۲۴ ماهه -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="plan-card">
+                        <div class="plan-header">
+                            <span class="plan-badge">ویژه</span>
+                            <h3 class="plan-title">طرح ۲۴ ماهه</h3>
+                            <div class="plan-price">
+                                <span class="price">سود ۲۴٪</span>
+                                <small>سالانه</small>
+                            </div>
+                        </div>
+                        <div class="plan-body">
+                            <ul class="plan-features">
+                                <li><i class="bi bi-check-circle-fill text-success"></i> پیش‌پرداخت ۱۰٪</li>
+                                <li><i class="bi bi-check-circle-fill text-success"></i> ۲۴ قسط ماهانه</li>
+                                <li><i class="bi bi-check-circle-fill text-success"></i> بدون کارمزد</li>
+                                <li><i class="bi bi-check-circle-fill text-success"></i> ارتقاء رایگان گارانتی</li>
+                                <li><i class="bi bi-check-circle-fill text-success"></i> هدیه خرید</li>
+                            </ul>
+
+                            <div class="example mt-4">
+                                <h6>مثال:</h6>
+                                <p class="mb-1">محصول ۱۰ میلیون تومانی</p>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <small>پیش‌پرداخت:</small>
+                                        <p class="fw-bold">۱,۰۰۰,۰۰۰ تومان</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <small>هر قسط:</small>
+                                        <p class="fw-bold text-success">۴۳۰,۰۰۰ تومان</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="plan-footer">
+                            <button class="btn btn-primary w-100" onclick="selectPlan('24-month')">
+                                انتخاب این طرح
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== ماشین حساب اقساط ==================== -->
+    <section id="calculator" class="calculator-section py-5">
+        <div class="container">
+            <div class="section-header text-center mb-5">
+                <h2 class="section-title">ماشین حساب اقساط</h2>
+                <p class="section-subtitle">محاسبه راحت اقساط محصول مورد نظرتان</p>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="calculator-card">
+                        <div class="calculator-header">
+                            <h4><i class="bi bi-calculator me-2"></i>محاسبه اقساط</h4>
+                        </div>
+                        <div class="calculator-body">
+                            <div class="mb-4">
+                                <label class="form-label">قیمت محصول (تومان)</label>
+                                <div class="input-group">
+                                    <input type="number" id="productPrice" class="form-control" value="10000000" min="1000000" max="1000000000">
+                                    <span class="input-group-text">تومان</span>
+                                </div>
+                                <div class="range-slider mt-2">
+                                    <input type="range" id="priceRange" class="form-range" min="1000000" max="100000000" step="1000000" value="10000000">
+                                    <div class="range-labels d-flex justify-content-between mt-1">
+                                        <small>۱ میلیون</small>
+                                        <small>۱۰۰ میلیون</small>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <label class="form-label">طرح اقساط</label>
+                                <div class="btn-group w-100" role="group">
+                                    <input type="radio" class="btn-check" name="planType" id="plan6" autocomplete="off" checked>
+                                    <label class="btn btn-outline-primary" for="plan6">۶ ماهه</label>
+
+                                    <input type="radio" class="btn-check" name="planType" id="plan12" autocomplete="off">
+                                    <label class="btn btn-outline-primary" for="plan12">۱۲ ماهه</label>
+
+                                    <input type="radio" class="btn-check" name="planType" id="plan24" autocomplete="off">
+                                    <label class="btn btn-outline-primary" for="plan24">۲۴ ماهه</label>
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <label class="form-label">درصد پیش‌پرداخت</label>
+                                <div class="input-group">
+                                    <input type="number" id="downPaymentPercent" class="form-control" value="30" min="10" max="50">
+                                    <span class="input-group-text">٪</span>
+                                </div>
+                                <div class="range-slider mt-2">
+                                    <input type="range" id="downPaymentRange" class="form-range" min="10" max="50" step="5" value="30">
+                                    <div class="range-labels d-flex justify-content-between mt-1">
+                                        <small>۱۰٪</small>
+                                        <small>۵۰٪</small>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button class="btn btn-primary w-100" onclick="calculateInstallment()">
+                                <i class="bi bi-calculator me-2"></i>محاسبه اقساط
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="result-card">
+                        <div class="result-header">
+                            <h4><i class="bi bi-currency-exchange me-2"></i>نتیجه محاسبه</h4>
+                        </div>
+                        <div class="result-body">
+                            <div class="result-summary text-center mb-4">
+                                <div class="total-price">
+                                    <small>قیمت کل محصول</small>
+                                    <h3 id="totalPrice">۱۰,۰۰۰,۰۰۰ تومان</h3>
+                                </div>
+                            </div>
+
+                            <div class="result-details">
+                                <div class="result-item">
+                                    <span>پیش‌پرداخت:</span>
+                                    <strong id="downPaymentResult">۳,۰۰۰,۰۰۰ تومان</strong>
+                                </div>
+                                <div class="result-item">
+                                    <span>مانده قابل اقساط:</span>
+                                    <strong id="remainingAmount">۷,۰۰۰,۰۰۰ تومان</strong>
+                                </div>
+                                <div class="result-item">
+                                    <span>سود کل:</span>
+                                    <strong id="totalInterest">۱,۴۰۰,۰۰۰ تومان</strong>
+                                </div>
+                                <div class="result-item">
+                                    <span>مبلغ نهایی:</span>
+                                    <strong id="finalAmount">۱۱,۴۰۰,۰۰۰ تومان</strong>
+                                </div>
+                                <div class="result-item highlight">
+                                    <span>هر قسط ماهانه:</span>
+                                    <strong id="monthlyPayment" class="text-success">۱,۴۰۰,۰۰۰ تومان</strong>
+                                </div>
+                            </div>
+
+                            <div class="result-chart mt-4">
+                                <div class="chart-title">
+                                    <small>نمودار پرداخت‌ها</small>
+                                </div>
+                                <div class="chart-bars">
+                                    <div class="chart-bar down-payment" style="width: 30%">
+                                        <span>پیش پرداخت</span>
+                                    </div>
+                                    <div class="chart-bar installment" style="width: 70%">
+                                        <span>اقساط</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="result-actions mt-4">
+                                <button class="btn btn-success w-100" onclick="applyForInstallment()">
+                                    <i class="bi bi-credit-card me-2"></i>درخواست خرید اقساطی
+                                </button>
+                                <button class="btn btn-outline-primary w-100 mt-2" onclick="resetCalculator()">
+                                    <i class="bi bi-arrow-clockwise me-2"></i>محاسبه مجدد
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== مدارک مورد نیاز ==================== -->
+    <section class="documents-section py-5">
+        <div class="container">
+            <div class="section-header text-center mb-5">
+                <h2 class="section-title">مدارک مورد نیاز</h2>
+                <p class="section-subtitle">برای خرید اقساطی به این مدارک نیاز دارید</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="document-card required">
+                        <div class="document-icon">
+                            <i class="bi bi-person-badge"></i>
+                        </div>
+                        <div class="document-content">
+                            <h5>مدارک اصلی</h5>
+                            <ul>
+                                <li>کپی کارت ملی (پشت و رو)</li>
+                                <li>کپی شناسنامه (صفحه اول و دوم)</li>
+                                <li>عکس پرسنلی ۴*۳</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="document-card">
+                        <div class="document-icon">
+                            <i class="bi bi-file-earmark-text"></i>
+                        </div>
+                        <div class="document-content">
+                            <h5>مدارک شغلی</h5>
+                            <ul>
+                                <li>آخرین فیش حقوقی (برای شاغلین)</li>
+                                <li>گواهی اشتغال به کار</li>
+                                <li>جواز کسب (برای اصناف)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="alert alert-info mt-4">
+                <div class="d-flex align-items-center">
+                    <i class="bi bi-info-circle-fill fs-4 me-3"></i>
+                    <div>
+                        <h6 class="mb-1">نکته مهم</h6>
+                        <p class="mb-0">افراد شاغل با سابقه بیمه حداقل ۶ ماه و فیش حقوقی ثابت می‌توانند بدون ضامن خرید کنند.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== سوالات متداول ==================== -->
+    <section class="faq-section py-5 bg-light">
+        <div class="container">
+            <div class="section-header text-center mb-5">
+                <h2 class="section-title">سوالات متداول خرید اقساطی</h2>
+                <p class="section-subtitle">پاسخ به پرتکرارترین سوالات شما</p>
+            </div>
+
+            <div class="accordion" id="installmentFAQ">
+                <div class="accordion-item">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                            چه کسانی می‌توانند خرید اقساطی داشته باشند؟
+                        </button>
+                    </h3>
+                    <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#installmentFAQ">
+                        <div class="accordion-body">
+                            کلیه افراد شاغل با سابقه بیمه حداقل ۶ ماه، بازنشستگان، دانشجویان شاغل و اصناف دارای جواز کسب معتبر می‌توانند از خدمات خرید اقساطی استفاده کنند.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                            مدت زمان بررسی درخواست چقدر است؟
+                        </button>
+                    </h3>
+                    <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#installmentFAQ">
+                        <div class="accordion-body">
+                            درخواست‌های خرید اقساطی حداکثر تا ۲۴ ساعت کاری بررسی می‌شوند. در صورت کامل بودن مدارک، معمولاً در همان روز تایید می‌شوند.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                            آیا امکان تسویه زودتر وجود دارد؟
+                        </button>
+                    </h3>
+                    <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#installmentFAQ">
+                        <div class="accordion-body">
+                            بله، شما می‌توانید در هر زمان مبلغ باقیمانده را یکجا پرداخت کنید. در این صورت از سود باقیمانده معاف خواهید شد.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                            نحوه پرداخت اقساط چگونه است؟
+                        </button>
+                    </h3>
+                    <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#installmentFAQ">
+                        <div class="accordion-body">
+                            اقساط به صورت ماهانه از حساب بانکی شما به صورت خودکار کسر می‌شود. همچنین می‌توانید هر ماه به صورت دستی از طریق درگاه بانکی پرداخت کنید.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-5">
+                <a href="contact.html" class="btn btn-primary">
+                    <i class="bi bi-question-circle me-2"></i>سوال دیگری دارید؟
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ==================== فوتر ==================== -->
+    <footer class="novin-footer py-5">
+        <div class="container">
+            <div class="row">
+                <!-- اطلاعات تماس -->
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-brand mb-3">
+                        <h5 class="mt-2 mb-1">نوین دیجیتال</h5>
+                        <p class="footer-tagline small">فروشگاه تخصصی محصولات دیجیتال</p>
+                    </div>
+                    <p class="footer-desc small mb-3">
+                        با بیش از یک دهه تجربه در زمینه واردات و فروش محصولات دیجیتال، ارائه کننده بهترین برندها با گارانتی اصلی و پشتیبانی ۲۴ ساعته.
+                    </p>
+                    <div class="footer-contact">
+                        <div class="contact-item">
+                            <i class="bi bi-telephone"></i>
+                            <span class="small">۰۲۵-۳۶۷۰۷۵۷۰</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="bi bi-phone"></i>
+                            <span class="small">۰۹۱۹۶۹۲۱۹۰۲</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="bi bi-geo-alt"></i>
+                            <span class="small">قم، خیابان آذر، پلاک ۱۲</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="bi bi-clock"></i>
+                            <span class="small">شنبه تا پنجشنبه: ۹ صبح تا ۹ شب</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- لینک‌های سریع -->
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h6 class="footer-heading mb-3">لینک‌های سریع</h6>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="bi bi-house-door me-1"></i> خانه</a></li>
+                        <li><a href="product archive.html"><i class="bi bi-grid me-1"></i> محصولات</a></li>
+                        <li><a href="blog.html"><i class="bi bi-newspaper me-1"></i> بلاگ</a></li>
+                        <li><a href="about.html"><i class="bi bi-info-circle me-1"></i> درباره ما</a></li>
+                        <li><a href="contact.html"><i class="bi bi-envelope me-1"></i> تماس با ما</a></li>
+                    </ul>
+                </div>
+
+                <!-- خدمات -->
+                <div class="col-lg-3 col-md-4 mb-4">
+                    <h6 class="footer-heading mb-3">خدمات مشتریان</h6>
+                    <ul class="footer-links">
+                        <li><a href="installment.html"><i class="bi bi-credit-card me-1"></i> خرید اقساطی</a></li>
+                        <li><a href="privacy.html"><i class="bi bi-shield-check me-1"></i>قوانین و مقررات</a></li>
+                        <li><a href="faq.html"><i class="bi bi-truck me-1"></i> شرایط ارسال</a></li>
+                        <li><a href="404.html"><i class="bi bi-arrow-return-left me-1"></i> بازگرداندن کالا</a></li>
+                        <li><a href="faq.html"><i class="bi bi-question-circle me-1"></i> سوالات متداول</a></li>
+                    </ul>
+                </div>
+
+                <!-- شبکه‌های اجتماعی -->
+                <div class="col-lg-3 col-md-4 mb-4">
+                    <h6 class="footer-heading mb-3">ما را دنبال کنید</h6>
+                    <div class="social-links mb-4">
+                        <a href="https://instagram.com/novindigital" target="_blank" class="social-link instagram">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="https://t.me/novindigital" target="_blank" class="social-link telegram">
+                            <i class="bi bi-telegram"></i>
+                        </a>
+                        <a href="https://wa.me/989196921902" target="_blank" class="social-link whatsapp">
+                            <i class="bi bi-whatsapp"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@novindigital" target="_blank" class="social-link youtube">
+                            <i class="bi bi-youtube"></i>
+                        </a>
+                        <a href="https://www.aparat.com/novindigital" target="_blank" class="social-link aparat">
+                            <i class="bi bi-camera-video"></i>
+                        </a>
+                    </div>
+
+                    <div class="newsletter">
+                        <h6 class="newsletter-title mb-2">عضویت در خبرنامه</h6>
+                        <p class="newsletter-desc small mb-2">از جدیدترین تخفیف‌ها و محصولات با خبر شوید</p>
+                        <div class="input-group input-group-sm">
+                            <input type="email" class="form-control" placeholder="آدرس ایمیل شما" id="newsletterEmail">
+                            <button class="btn btn-newsletter" type="button" id="newsletterSubscribe">
+                        <i class="bi bi-send"></i>
+                    </button>
+                        </div>
+                        <p class="newsletter-note extra-small mt-2">هفته‌ای یک ایمیل مفید دریافت خواهید کرد</p>
+                    </div>
+
+                    <!-- اعتماد نمادها -->
+                    <div class="trust-badges mt-3">
+                        <img src="images/نماد الکترونیک.png" alt="نماد اعتماد الکترونیکی" class="trust-badge me-2" style="height: 40px;">
+                    </div>
+                </div>
+            </div>
+
+            <hr class="footer-divider my-4">
+
+            <div class="footer-bottom text-center">
+                <div class="row align-items-center">
+                    <div class="col-md-6 mb-2 mb-md-0">
+                        <p class="copyright small mb-0">
+                            © ۱۴۰۳ نوین دیجیتال — تمامی حقوق محفوظ است.
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="designer small mb-0">
+                            <i class="bi bi-code-slash me-1"></i> طراحی و توسعه: محدثه اسلامی
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 🔹 مودال درخواست فوری -->
+    <div class="modal fade" id="quickRequestModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-warning">
+                    <h5 class="modal-title"><i class="bi bi-lightning me-2"></i>درخواست فوری خرید اقساطی</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="quickRequestForm">
+                        <div class="mb-3">
+                            <label class="form-label">نام و نام خانوادگی</label>
+                            <input type="text" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">شماره تماس</label>
+                            <input type="tel" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">محصول مورد نظر</label>
+                            <select class="form-select" required>
+                            <option value="">انتخاب کنید</option>
+                            <option>آیفون ۱۷ پرو مکس</option>
+                            <option>سامسونگ S25 Ultra</option>
+                            <option>لپ‌تاپ ایسر Aspire Lite</option>
+                            <option>سایر محصولات</option>
+                        </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">توضیحات (اختیاری)</label>
+                            <textarea class="form-control" rows="3" placeholder="توضیحات اضافی..."></textarea>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" required>
+                            <label class="form-check-label">
+                            <a href="#" class="text-primary">قوانین و شرایط</a> خرید اقساطی را مطالعه کرده‌ام و می‌پذیرم.
+                        </label>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">انصراف</button>
+                    <button type="submit" form="quickRequestForm" class="btn btn-warning">
+                    <i class="bi bi-send me-1"></i>ارسال درخواست
+                </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 🔹 دکمه اسکرول به بالا -->
+    <button class="scroll-to-top" id="scrollToTop" title="برو به بالا">
+    <i class="bi bi-chevron-up"></i>
+</button>
+
+    <!-- اسکریپت‌ها -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/installment.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسویه حساب | نوین دیجیتال</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark novin-header sticky-top">
+        <div class="container">
+
+            <div class="d-flex align-items-center">
+
+                <a class="navbar-brand d-flex align-items-center me-3" href="index.html">
+                    <img src="images/بدون بک.png" alt="نوین دیجیتال" class="logo-img">
+                    <span class="brand-name me-2">NovinDigital</span>
+                </a>
+
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+
+                <div class="collapse navbar-collapse" id="navbarContent">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="index.html">خانه</a>
+                        </li>
+
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                                محصولات
+                            </a>
+                            <ul class="dropdown-menu">
+
+                                <li><a class="dropdown-item fw-bold" href="product archive.html">آرشیو محصولات</a></li>
+                            </ul>
+                        </li>
+
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                                بلاگ
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="blog.html">مقالات جدید</a></li>
+                                <li><a class="dropdown-item" href="blog archive.html">آرشیو بلاگ</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">درباره ما</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="installment.html">خرید اقساطی</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+
+
+            <div class="d-none d-lg-flex flex-grow-1"></div>
+
+
+            <div class="nav-icons d-flex align-items-center">
+
+                <button class="nav-icon me-2" type="button" data-bs-toggle="modal" data-bs-target="#searchModal" title="جستجو">
+                    <i class="bi bi-search"></i>
+                </button>
+
+                <div class="dropdown me-2">
+                    <button class="nav-icon dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                        <i class="bi bi-person"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="login.html">ورود</a></li>
+                        <li><a class="dropdown-item" href="register.html">ثبت‌نام</a></li>
+                        <li>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <a href="404.html" class="nav-icon me-2 position-relative" title="علاقه‌مندی‌ها">
+                    <i class="bi bi-heart"></i>
+                    <span class="icon-badge">۳</span>
+                </a>
+
+
+                <button class="nav-icon position-relative" type="button" data-bs-toggle="modal" data-bs-target="#cartModal" title="سبد خرید">
+                    <i class="bi bi-cart"></i>
+                    <span class="icon-badge" id="cartCountBadge">۲</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="checkout-section">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-8">
+                    <div class="checkout-card">
+                        <h4 class="checkout-title"><i class="bi bi-geo-alt me-2"></i> اطلاعات ارسال</h4>
+
+                        <div class="address-box selected">
+                            <div class="address-header">
+                                <span class="badge bg-primary">آدرس پیش‌فرض</span>
+                                <button class="btn-edit"><i class="bi bi-pencil"></i></button>
+                            </div>
+                            <p><strong>محدثه اسلامی</strong> | ۰۹۱۹۶۹۲۱۹۰۲</p>
+                            <p class="text-muted">قم، خیابان آذر، پلاک ۱۲، کد پستی: ۳۷۱۵۸</p>
+                        </div>
+
+                        <hr class="my-4">
+
+                        <h5 class="mb-3"><i class="bi bi-credit-card me-2"></i> روش پرداخت</h5>
+                        <div class="payment-methods">
+                            <div class="payment-option selected">
+                                <i class="bi bi-credit-card-2-front"></i>
+                                <span>پرداخت آنلاین</span>
+                            </div>
+                            <div class="payment-option">
+                                <i class="bi bi-cash"></i>
+                                <span>پرداخت در محل</span>
+                            </div>
+                            <div class="payment-option">
+                                <i class="bi bi-bank"></i>
+                                <span>کارت به کارت</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="checkout-card">
+                        <h4 class="checkout-title"><i class="bi bi-truck me-2"></i> روش ارسال</h4>
+                        <div class="shipping-options">
+                            <div class="shipping-option selected">
+                                <div>
+                                    <h6>پست پیشتاز</h6>
+                                    <p class="text-muted mb-0">تحویل ۲-۳ روز کاری</p>
+                                </div>
+                                <span class="price">رایگان</span>
+                            </div>
+                            <div class="shipping-option">
+                                <div>
+                                    <h6>تیپاکس</h6>
+                                    <p class="text-muted mb-0">تحویل ۱ روز کاری</p>
+                                </div>
+                                <span class="price">۵۰,۰۰۰ تومان</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-4">
+                    <div class="order-summary">
+                        <h4 class="checkout-title"><i class="bi bi-receipt me-2"></i> خلاصه سفارش</h4>
+
+                        <div class="order-items">
+                            <div class="order-item">
+                                <img src="images/iphone 17 chla.jpg" alt="آیفون">
+                                <div>
+                                    <h6>آیفون ۱۷ CH/A</h6>
+                                    <p>۱ عدد × ۴۵,۰۰۰,۰۰۰ تومان</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="order-details">
+                            <div class="detail-row">
+                                <span>جمع محصولات</span>
+                                <span>۴۵,۰۰۰,۰۰۰ تومان</span>
+                            </div>
+                            <div class="detail-row">
+                                <span>هزینه ارسال</span>
+                                <span>رایگان</span>
+                            </div>
+                            <div class="detail-row">
+                                <span>تخفیف</span>
+                                <span class="text-success">-۲,۰۰۰,۰۰۰ تومان</span>
+                            </div>
+                            <div class="detail-row total">
+                                <strong>مبلغ قابل پرداخت</strong>
+                                <strong class="text-danger">۴۳,۰۰۰,۰۰۰ تومان</strong>
+                            </div>
+                        </div>
+
+                        <div class="order-notes">
+                            <textarea class="form-control" rows="3" placeholder="یادداشت سفارش (اختیاری)"></textarea>
+                        </div>
+
+                        <div class="terms-agreement">
+                            <input type="checkbox" id="terms" checked>
+                            <label for="terms">قوانین و شرایط را مطالعه کرده‌ام و موافقم</label>
+                        </div>
+
+                        <a href="payment-failure.html" class="btn btn-success w-100 py-3 mt-3">
+                            <i class="bi bi-lock me-2"></i> پرداخت و تکمیل سفارش
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="novin-footer py-5">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-brand mb-3">
+                        <h5 class="mt-2 mb-1">نوین دیجیتال</h5>
+                        <p class="footer-tagline small">فروشگاه تخصصی محصولات دیجیتال</p>
+                    </div>
+                    <p class="footer-desc small mb-3">
+                        با بیش از یک دهه تجربه در زمینه واردات و فروش محصولات دیجیتال، ارائه کننده بهترین برندها با گارانتی اصلی و پشتیبانی ۲۴ ساعته.
+                    </p>
+                    <div class="footer-contact">
+                        <div class="contact-item">
+                            <i class="bi bi-telephone"></i>
+                            <span class="small">۰۲۵-۳۶۷۰۷۵۷۰</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="bi bi-phone"></i>
+                            <span class="small">۰۹۱۹۶۹۲۱۹۰۲</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="bi bi-geo-alt"></i>
+                            <span class="small">قم، خیابان آذر، پلاک ۱۲</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="bi bi-clock"></i>
+                            <span class="small">شنبه تا پنجشنبه: ۹ صبح تا ۹ شب</span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h6 class="footer-heading mb-3">لینک‌های سریع</h6>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="bi bi-house-door me-1"></i> خانه</a></li>
+                        <li><a href="product archive.html"><i class="bi bi-grid me-1"></i> محصولات</a></li>
+                        <li><a href="blog.html"><i class="bi bi-newspaper me-1"></i> بلاگ</a></li>
+                        <li><a href="about.html"><i class="bi bi-info-circle me-1"></i> درباره ما</a></li>
+                        <li><a href="contact.html"><i class="bi bi-envelope me-1"></i> تماس با ما</a></li>
+                    </ul>
+                </div>
+
+
+                <div class="col-lg-3 col-md-4 mb-4">
+                    <h6 class="footer-heading mb-3">خدمات مشتریان</h6>
+                    <ul class="footer-links">
+                        <li><a href="installment.html"><i class="bi bi-credit-card me-1"></i> خرید اقساطی</a></li>
+                        <li><a href="privacy.html"><i class="bi bi-shield-check me-1"></i>قوانین و مقررات</a></li>
+                        <li><a href="faq.html"><i class="bi bi-truck me-1"></i> شرایط ارسال</a></li>
+                        <li><a href="404.html"><i class="bi bi-arrow-return-left me-1"></i> بازگرداندن کالا</a></li>
+                        <li><a href="faq.html"><i class="bi bi-question-circle me-1"></i> سوالات متداول</a></li>
+                    </ul>
+                </div>
+
+
+                <div class="col-lg-3 col-md-4 mb-4">
+                    <h6 class="footer-heading mb-3">ما را دنبال کنید</h6>
+                    <div class="social-links mb-4">
+                        <a href="https://instagram.com/novindigital" target="_blank" class="social-link instagram">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="https://t.me/novindigital" target="_blank" class="social-link telegram">
+                            <i class="bi bi-telegram"></i>
+                        </a>
+                        <a href="https://wa.me/989196921902" target="_blank" class="social-link whatsapp">
+                            <i class="bi bi-whatsapp"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@novindigital" target="_blank" class="social-link youtube">
+                            <i class="bi bi-youtube"></i>
+                        </a>
+                        <a href="https://www.aparat.com/novindigital" target="_blank" class="social-link aparat">
+                            <i class="bi bi-camera-video"></i>
+                        </a>
+                    </div>
+
+                    <div class="newsletter">
+                        <h6 class="newsletter-title mb-2">عضویت در خبرنامه</h6>
+                        <p class="newsletter-desc small mb-2">از جدیدترین تخفیف‌ها و محصولات با خبر شوید</p>
+                        <div class="input-group input-group-sm">
+                            <input type="email" class="form-control" placeholder="آدرس ایمیل شما" id="newsletterEmail">
+                            <button class="btn btn-newsletter" type="button" id="newsletterSubscribe">
+                        <i class="bi bi-send"></i>
+                    </button>
+                        </div>
+                        <p class="newsletter-note extra-small mt-2">هفته‌ای یک ایمیل مفید دریافت خواهید کرد</p>
+                    </div>
+
+
+                    <div class="trust-badges mt-3">
+                        <img src="images/نماد الکترونیک.png" alt="نماد اعتماد الکترونیکی" class="trust-badge me-2" style="height: 40px;">
+                    </div>
+                </div>
+            </div>
+
+            <hr class="footer-divider my-4">
+
+            <div class="footer-bottom text-center">
+                <div class="row align-items-center">
+                    <div class="col-md-6 mb-2 mb-md-0">
+                        <p class="copyright small mb-0">
+                            © ۱۴۰۳ نوین دیجیتال — تمامی حقوق محفوظ است.
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="designer small mb-0">
+                            <i class="bi bi-code-slash me-1"></i> طراحی و توسعه: محدثه اسلامی
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button class="scroll-to-top" id="scrollToTop" title="برو به بالا">
+    <i class="bi bi-chevron-up"></i>
+</button>
+</body>
+
+</html>

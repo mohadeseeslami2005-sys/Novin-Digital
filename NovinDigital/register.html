@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ثبت‌نام - نوین دیجیتال</title>
+
+
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/register.css">
+</head>
+
+<body>
+
+    <div class="modal novin-modal fade" id="cartModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title"><i class="bi bi-cart-check me-2"></i> سبد خرید شما</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <div class="empty-cart text-center py-5" id="emptyCartMessage">
+                        <i class="bi bi-cart-x text-muted display-4 mb-3"></i>
+                        <h6 class="text-muted mb-2">سبد خرید شما خالی است</h6>
+                        <a href="products.html" class="btn btn-primary mt-2">
+                            <i class="bi bi-bag me-1"></i>مشاهده محصولات
+                        </a>
+                    </div>
+                    <div class="cart-items" id="cartItemsContainer" style="display: none;">
+                        <div class="cart-item-list" id="cartItemList"></div>
+                        <div class="cart-summary p-4 border-top">
+                            <div class="row">
+                                <div class="col-6">
+                                    <h6 class="mb-0">جمع کل:</h6>
+                                </div>
+                                <div class="col-6 text-start">
+                                    <h5 class="text-danger mb-0" id="cartTotal">۰ تومان</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">بستن</button>
+                    <a href="checkout.html" class="btn btn-success" id="checkoutBtn" style="display: none;">
+                        <i class="bi bi-credit-card me-1"></i>ثبت سفارش
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal novin-modal fade" id="searchModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0 pb-0">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="search-modal-content">
+                        <h5 class="mb-4"><i class="bi bi-search me-2"></i>جستجوی محصولات</h5>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control form-control-lg search-modal-input" placeholder="نام محصول، برند یا مدل را جستجو کنید...">
+                            <button class="btn btn-primary" type="button" id="modalSearchBtn">
+                                <i class="bi bi-search"></i>
+                            </button>
+                        </div>
+                        <div class="search-suggestions mt-4" id="searchSuggestions">
+                            <h6 class="text-muted mb-3">جستجوهای پرطرفدار:</h6>
+                            <div class="d-flex flex-wrap gap-2">
+                                <span class="badge bg-light text-dark border">آیفون ۱۷</span>
+                                <span class="badge bg-light text-dark border">سامسونگ S25</span>
+                                <span class="badge bg-light text-dark border">لپ‌تاپ ایسر</span>
+                                <span class="badge bg-light text-dark border">هدفون انکر</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="toast-container position-fixed top-0 end-0 p-3"></div>
+
+
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">در حال بارگذاری...</span>
+        </div>
+        <p class="mt-3">در حال بارگذاری...</p>
+    </div>
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark novin-header sticky-top">
+        <div class="container">
+
+            <div class="d-flex align-items-center">
+
+                <a class="navbar-brand d-flex align-items-center me-3" href="index.html">
+                    <img src="images/بدون بک.png" alt="نوین دیجیتال" class="logo-img">
+                    <span class="brand-name me-2">NovinDigital</span>
+                </a>
+
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+
+                <div class="collapse navbar-collapse" id="navbarContent">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="index.html">خانه</a>
+                        </li>
+
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                                محصولات
+                            </a>
+                            <ul class="dropdown-menu">
+
+                                <li><a class="dropdown-item fw-bold" href="product archive.html">آرشیو محصولات</a></li>
+                            </ul>
+                        </li>
+
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                                بلاگ
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="blog.html">مقالات جدید</a></li>
+                                <li><a class="dropdown-item" href="blog archive.html">آرشیو بلاگ</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">درباره ما</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="installment.html">خرید اقساطی</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+
+
+            <div class="d-none d-lg-flex flex-grow-1"></div>
+
+
+            <div class="nav-icons d-flex align-items-center">
+
+                <button class="nav-icon me-2" type="button" data-bs-toggle="modal" data-bs-target="#searchModal" title="جستجو">
+                    <i class="bi bi-search"></i>
+                </button>
+
+
+                <div class="dropdown me-2">
+                    <button class="nav-icon dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                        <i class="bi bi-person"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="login.html">ورود</a></li>
+                        <li><a class="dropdown-item" href="register.html">ثبت‌نام</a></li>
+                        <li>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <a href="404.html" class="nav-icon me-2 position-relative" title="علاقه‌مندی‌ها">
+                    <i class="bi bi-heart"></i>
+                    <span class="icon-badge">۳</span>
+                </a>
+
+
+                <button class="nav-icon position-relative" type="button" data-bs-toggle="modal" data-bs-target="#cartModal" title="سبد خرید">
+                    <i class="bi bi-cart"></i>
+                    <span class="icon-badge" id="cartCountBadge">۲</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="register-section py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="register-card">
+                        <div class="row g-0">
+                            <!-- سمت چپ: مزایا -->
+                            <div class="col-lg-6 register-left">
+                                <div class="register-left-content">
+                                    <h2>به جمع ما بپیوندید!</h2>
+                                    <p>با ثبت‌نام در نوین دیجیتال از مزایای ویژه بهره‌مند شوید:</p>
+
+                                    <div class="register-benefits">
+                                        <div class="benefit-item">
+                                            <div class="benefit-icon">
+                                                <i class="bi bi-truck"></i>
+                                            </div>
+                                            <div>
+                                                <h6>ارسال رایگان</h6>
+                                                <p class="small">برای خریدهای بالای ۵۰۰ هزار تومان</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="benefit-item">
+                                            <div class="benefit-icon">
+                                                <i class="bi bi-percent"></i>
+                                            </div>
+                                            <div>
+                                                <h6>تخفیف‌های ویژه</h6>
+                                                <p class="small">عضویت در باشگاه مشتریان ویژه</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="benefit-item">
+                                            <div class="benefit-icon">
+                                                <i class="bi bi-shield-check"></i>
+                                            </div>
+                                            <div>
+                                                <h6>خرید امن</h6>
+                                                <p class="small">با گارانتی بازگشت وجه ۷ روزه</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="benefit-item">
+                                            <div class="benefit-icon">
+                                                <i class="bi bi-clock-history"></i>
+                                            </div>
+                                            <div>
+                                                <h6>پیگیری آنی</h6>
+                                                <p class="small">پیگیری لحظه‌ای سفارشات</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="register-left-footer">
+                                        <h5>قبلا ثبت‌نام کرده‌اید؟</h5>
+                                        <a href="login.html" class="btn btn-outline-light mt-2">
+                                            <i class="bi bi-box-arrow-in-right me-1"></i> ورود به حساب
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- سمت راست: فرم ثبت‌نام -->
+                            <div class="col-lg-6 register-right">
+                                <div class="register-right-content">
+                                    <div class="register-header">
+                                        <h1>ایجاد حساب جدید</h1>
+                                        <p>فرم زیر را تکمیل کنید</p>
+                                    </div>
+
+                                    <form id="registerForm" novalidate>
+                                        <!-- نام و نام خانوادگی -->
+                                        <div class="row g-3 mb-3">
+                                            <div class="col-md-6">
+                                                <div class="form-floating">
+                                                    <input type="text" class="form-control" id="firstName" placeholder="نام" required>
+                                                    <label for="firstName">نام</label>
+                                                    <div class="invalid-feedback">
+                                                        لطفا نام خود را وارد کنید
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-floating">
+                                                    <input type="text" class="form-control" id="lastName" placeholder="نام خانوادگی" required>
+                                                    <label for="lastName">نام خانوادگی</label>
+                                                    <div class="invalid-feedback">
+                                                        لطفا نام خانوادگی خود را وارد کنید
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- شماره موبایل -->
+                                        <div class="form-floating mb-3">
+                                            <input type="tel" class="form-control" id="phone" placeholder="09123456789" pattern="09[0-9]{9}" required>
+                                            <label for="phone">
+                                                <i class="bi bi-phone me-2"></i>شماره موبایل
+                                            </label>
+                                            <div class="invalid-feedback">
+                                                لطفا شماره موبایل معتبر وارد کنید (۰۹۱۲۳۴۵۶۷۸۹)
+                                            </div>
+                                        </div>
+
+                                        <!-- ایمیل -->
+                                        <div class="form-floating mb-3">
+                                            <input type="email" class="form-control" id="registerEmail" placeholder="name@example.com" required>
+                                            <label for="registerEmail">
+                                                <i class="bi bi-envelope me-2"></i>ایمیل
+                                            </label>
+                                            <div class="invalid-feedback">
+                                                لطفا ایمیل معتبر وارد کنید
+                                            </div>
+                                        </div>
+
+                                        <!-- رمز عبور -->
+                                        <div class="form-floating mb-3">
+                                            <input type="password" class="form-control" id="registerPassword" placeholder="رمز عبور" minlength="8" required>
+                                            <label for="registerPassword">
+                                                <i class="bi bi-lock me-2"></i>رمز عبور
+                                            </label>
+                                            <div class="password-strength">
+                                                <div class="password-strength-bar" id="passwordStrength"></div>
+                                            </div>
+                                            <div class="form-text small">
+                                                رمز عبور باید حداقل ۸ کاراکتر شامل حروف و اعداد باشد
+                                            </div>
+                                        </div>
+
+                                        <!-- تکرار رمز عبور -->
+                                        <div class="form-floating mb-3">
+                                            <input type="password" class="form-control" id="confirmPassword" placeholder="تکرار رمز عبور" required>
+                                            <label for="confirmPassword">
+                                                <i class="bi bi-lock-fill me-2"></i>تکرار رمز عبور
+                                            </label>
+                                            <div class="invalid-feedback">
+                                                رمزهای عبور مطابقت ندارند
+                                            </div>
+                                        </div>
+
+                                        <!-- قوانین -->
+                                        <div class="form-check mb-3">
+                                            <input class="form-check-input" type="checkbox" id="acceptTerms" required>
+                                            <label class="form-check-label" for="acceptTerms">
+                                                <a href="terms.html" class="text-decoration-none">قوانین و شرایط</a> را مطالعه کرده‌ام و می‌پذیرم
+                                            </label>
+                                            <div class="invalid-feedback">
+                                                شما باید قوانین را بپذیرید
+                                            </div>
+                                        </div>
+
+                                        <div class="form-check mb-4">
+                                            <input class="form-check-input" type="checkbox" id="newsletter">
+                                            <label class="form-check-label" for="newsletter">
+                                                می‌خواهم از خبرنامه و پیشنهادهای ویژه مطلع شوم
+                                            </label>
+                                        </div>
+
+                                        <!-- دکمه ثبت‌نام -->
+                                        <button type="submit" class="btn btn-register" id="registerBtn">
+                                            <i class="bi bi-person-plus me-2"></i>
+                                            ایجاد حساب کاربری
+                                        </button>
+                                    </form>
+
+                                    <!-- لینک ورود -->
+                                    <div class="register-footer">
+                                        <p class="mb-0">
+                                            قبلا حساب کاربری دارید؟
+                                            <a href="login.html">وارد شوید</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== فوتر ==================== -->
+    <footer class="novin-footer py-5">
+        <div class="container">
+            <div class="row">
+                <!-- اطلاعات تماس -->
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-brand mb-3">
+                        <h5 class="mt-2 mb-1">نوین دیجیتال</h5>
+                        <p class="footer-tagline small">فروشگاه تخصصی محصولات دیجیتال</p>
+                    </div>
+                    <p class="footer-desc small mb-3">
+                        با بیش از یک دهه تجربه در زمینه واردات و فروش محصولات دیجیتال، ارائه کننده بهترین برندها با گارانتی اصلی و پشتیبانی ۲۴ ساعته.
+                    </p>
+                    <div class="footer-contact">
+                        <div class="contact-item">
+                            <i class="bi bi-telephone"></i>
+                            <span class="small">۰۲۵-۳۶۷۰۷۵۷۰</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="bi bi-phone"></i>
+                            <span class="small">۰۹۱۹۶۹۲۱۹۰۲</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="bi bi-geo-alt"></i>
+                            <span class="small">قم، خیابان آذر، پلاک ۱۲</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="bi bi-clock"></i>
+                            <span class="small">شنبه تا پنجشنبه: ۹ صبح تا ۹ شب</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- لینک‌های سریع -->
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h6 class="footer-heading mb-3">لینک‌های سریع</h6>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="bi bi-house-door me-1"></i> خانه</a></li>
+                        <li><a href="product archive.html"><i class="bi bi-grid me-1"></i> محصولات</a></li>
+                        <li><a href="blog.html"><i class="bi bi-newspaper me-1"></i> بلاگ</a></li>
+                        <li><a href="about.html"><i class="bi bi-info-circle me-1"></i> درباره ما</a></li>
+                        <li><a href="contact.html"><i class="bi bi-envelope me-1"></i> تماس با ما</a></li>
+                    </ul>
+                </div>
+
+                <!-- خدمات -->
+                <div class="col-lg-3 col-md-4 mb-4">
+                    <h6 class="footer-heading mb-3">خدمات مشتریان</h6>
+                    <ul class="footer-links">
+                        <li><a href="installment.html"><i class="bi bi-credit-card me-1"></i> خرید اقساطی</a></li>
+                        <li><a href="privacy.html"><i class="bi bi-shield-check me-1"></i>قوانین و مقررات</a></li>
+                        <li><a href="faq.html"><i class="bi bi-truck me-1"></i> شرایط ارسال</a></li>
+                        <li><a href="404.html"><i class="bi bi-arrow-return-left me-1"></i> بازگرداندن کالا</a></li>
+                        <li><a href="faq.html"><i class="bi bi-question-circle me-1"></i> سوالات متداول</a></li>
+                    </ul>
+                </div>
+
+                <!-- شبکه‌های اجتماعی -->
+                <div class="col-lg-3 col-md-4 mb-4">
+                    <h6 class="footer-heading mb-3">ما را دنبال کنید</h6>
+                    <div class="social-links mb-4">
+                        <a href="https://instagram.com/novindigital" target="_blank" class="social-link instagram">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="https://t.me/novindigital" target="_blank" class="social-link telegram">
+                            <i class="bi bi-telegram"></i>
+                        </a>
+                        <a href="https://wa.me/989196921902" target="_blank" class="social-link whatsapp">
+                            <i class="bi bi-whatsapp"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@novindigital" target="_blank" class="social-link youtube">
+                            <i class="bi bi-youtube"></i>
+                        </a>
+                        <a href="https://www.aparat.com/novindigital" target="_blank" class="social-link aparat">
+                            <i class="bi bi-camera-video"></i>
+                        </a>
+                    </div>
+
+                    <div class="newsletter">
+                        <h6 class="newsletter-title mb-2">عضویت در خبرنامه</h6>
+                        <p class="newsletter-desc small mb-2">از جدیدترین تخفیف‌ها و محصولات با خبر شوید</p>
+                        <div class="input-group input-group-sm">
+                            <input type="email" class="form-control" placeholder="آدرس ایمیل شما" id="newsletterEmail">
+                            <button class="btn btn-newsletter" type="button" id="newsletterSubscribe">
+                        <i class="bi bi-send"></i>
+                    </button>
+                        </div>
+                        <p class="newsletter-note extra-small mt-2">هفته‌ای یک ایمیل مفید دریافت خواهید کرد</p>
+                    </div>
+
+                    <!-- اعتماد نمادها -->
+                    <div class="trust-badges mt-3">
+                        <img src="images/نماد الکترونیک.png" alt="نماد اعتماد الکترونیکی" class="trust-badge me-2" style="height: 40px;">
+                    </div>
+                </div>
+            </div>
+
+            <hr class="footer-divider my-4">
+
+            <div class="footer-bottom text-center">
+                <div class="row align-items-center">
+                    <div class="col-md-6 mb-2 mb-md-0">
+                        <p class="copyright small mb-0">
+                            © ۱۴۰۳ نوین دیجیتال — تمامی حقوق محفوظ است.
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="designer small mb-0">
+                            <i class="bi bi-code-slash me-1"></i> طراحی و توسعه: محدثه اسلامی
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 🔹 دکمه اسکرول به بالا -->
+    <button class="scroll-to-top" id="scrollToTop" title="برو به بالا">
+        <i class="bi bi-chevron-up"></i>
+    </button>
+
+    <!-- اسکریپت‌ها -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/register.js"></script>
+</body>
+
+</html>

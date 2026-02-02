@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تماس با ما | نوین دیجیتال</title>
+
+    <!-- فونت وزیرمتن -->
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+    <!-- Bootstrap 5 RTL -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <!-- استایل اختصاصی -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- استایل صفحه تماس -->
+    <link rel="stylesheet" href="css/contact.css">
+
+    <!-- متا تگ‌های SEO -->
+    <meta name="description" content="تماس با نوین دیجیتال - پشتیبانی ۲۴ ساعته، پاسخگویی فوری">
+    <meta name="keywords" content="تماس با ما, پشتیبانی, سوالات, نوین دیجیتال">
+    <meta name="author" content="نوین دیجیتال">
+</head>
+
+<body>
+    <!-- ==================== هدر ==================== -->
+    <nav class="navbar navbar-expand-lg navbar-dark novin-header sticky-top">
+        <div class="container">
+            <!-- سمت راست: لوگو و منو -->
+            <div class="d-flex align-items-center">
+                <!-- لوگو + نام -->
+                <a class="navbar-brand d-flex align-items-center me-3" href="index.html">
+                    <img src="images/بدون بک.png" alt="نوین دیجیتال" class="logo-img">
+                    <span class="brand-name me-2">NovinDigital</span>
+                </a>
+
+                <!-- دکمه همبرگری -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- منوی اصلی -->
+                <div class="collapse navbar-collapse" id="navbarContent">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="index.html">خانه</a>
+                        </li>
+
+                        <!-- منوی محصولات -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                                محصولات
+                            </a>
+                            <ul class="dropdown-menu">
+
+                                <li><a class="dropdown-item fw-bold" href="product archive.html">آرشیو محصولات</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- منوی بلاگ -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                                بلاگ
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="blog.html">مقالات جدید</a></li>
+                                <li><a class="dropdown-item" href="blog archive.html">آرشیو بلاگ</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">درباره ما</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="installment.html">خرید اقساطی</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+
+            <!-- وسط: فضای خالی -->
+            <div class="d-none d-lg-flex flex-grow-1"></div>
+
+            <!-- سمت چپ: آیکون‌ها -->
+            <div class="nav-icons d-flex align-items-center">
+                <!-- جستجو -->
+                <button class="nav-icon me-2" type="button" data-bs-toggle="modal" data-bs-target="#searchModal" title="جستجو">
+                    <i class="bi bi-search"></i>
+                </button>
+
+                <!-- کاربر با dropdown -->
+                <div class="dropdown me-2">
+                    <button class="nav-icon dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                        <i class="bi bi-person"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="login.html">ورود</a></li>
+                        <li><a class="dropdown-item" href="register.html">ثبت‌نام</a></li>
+                        <li>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- علاقه‌مندی -->
+                <a href="404.html" class="nav-icon me-2 position-relative" title="علاقه‌مندی‌ها">
+                    <i class="bi bi-heart"></i>
+                    <span class="icon-badge">۳</span>
+                </a>
+
+                <!-- سبد خرید -->
+                <button class="nav-icon position-relative" type="button" data-bs-toggle="modal" data-bs-target="#cartModal" title="سبد خرید">
+                    <i class="bi bi-cart"></i>
+                    <span class="icon-badge" id="cartCountBadge">۲</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+
+    <section class="contact-info-section py-5">
+        <div class="container">
+            <div class="section-header text-center mb-5">
+                <h2 class="section-title">راه‌های ارتباطی</h2>
+                <p class="section-subtitle">از طریق کانال‌های زیر با ما در ارتباط باشید</p>
+            </div>
+
+            <div class="row g-4">
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="contact-card">
+                        <div class="contact-card-header phone">
+                            <div class="contact-icon">
+                                <i class="bi bi-telephone"></i>
+                            </div>
+                            <h5 class="contact-card-title">تماس تلفنی</h5>
+                        </div>
+                        <div class="contact-card-body">
+                            <p class="contact-description">
+                                برای مشاوره فنی، استعلام قیمت و پشتیبانی فوری
+                            </p>
+                            <div class="contact-numbers">
+                                <a href="tel:02536707570" class="contact-number">
+                                    <i class="bi bi-telephone-outbound me-2"></i> ۰۲۵-۳۶۷۰۷۵۷۰
+                                </a>
+                                <a href="tel:09196921902" class="contact-number">
+                                    <i class="bi bi-phone me-2"></i> ۰۹۱۹۶۹۲۱۹۰۲
+                                </a>
+                            </div>
+                            <div class="contact-hours mt-3">
+                                <h6><i class="bi bi-clock-history me-2"></i>ساعات پاسخگویی:</h6>
+                                <p class="mb-0">شنبه تا پنجشنبه: ۹ صبح تا ۹ شب</p>
+                                <p class="mb-0">جمعه‌ها: ۱۰ صبح تا ۶ عصر</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="contact-card">
+                        <div class="contact-card-header message">
+                            <div class="contact-icon">
+                                <i class="bi bi-chat-dots"></i>
+                            </div>
+                            <h5 class="contact-card-title">پیام‌رسان‌ها</h5>
+                        </div>
+                        <div class="contact-card-body">
+                            <p class="contact-description">
+                                پاسخگویی سریع در واتس‌اپ، تلگرام و اینستاگرام
+                            </p>
+                            <div class="messenger-links">
+                                <a href="https://wa.me/989196921902" target="_blank" class="messenger-link whatsapp">
+                                    <i class="bi bi-whatsapp me-2"></i> واتس‌اپ
+                                    <span class="messenger-badge">پاسخ فوری</span>
+                                </a>
+                                <a href="https://t.me/NovinDigital" target="_blank" class="messenger-link telegram">
+                                    <i class="bi bi-telegram me-2"></i> تلگرام
+                                    <span class="messenger-badge">کانال اصلی</span>
+                                </a>
+                                <a href="https://instagram.com/NovinDigital" target="_blank" class="messenger-link instagram">
+                                    <i class="bi bi-instagram me-2"></i> اینستاگرام
+                                    <span class="messenger-badge">آخرین اخبار</span>
+                                </a>
+                            </div>
+                            <div class="contact-note mt-3">
+                                <p class="small mb-0">
+                                    <i class="bi bi-info-circle me-1"></i> میانگین زمان پاسخ: کمتر از ۱۵ دقیقه
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-12 col-lg-4">
+                    <div class="contact-card">
+                        <div class="contact-card-header address">
+                            <div class="contact-icon">
+                                <i class="bi bi-geo-alt"></i>
+                            </div>
+                            <h5 class="contact-card-title">آدرس و موقعیت</h5>
+                        </div>
+                        <div class="contact-card-body">
+                            <p class="contact-description">
+                                برای مراجعه حضوری و خدمات پس از فروش
+                            </p>
+                            <div class="address-info">
+                                <div class="address-item">
+                                    <i class="bi bi-geo-alt-fill me-2"></i>
+                                    <div>
+                                        <h6>آدرس فروشگاه:</h6>
+                                        <p class="mb-2">قم، خیابان آذر، پلاک ۱۲، فروشگاه نوین دیجیتال</p>
+                                    </div>
+                                </div>
+
+                                <div class="address-map mt-4">
+                                    <div class="map-placeholder">
+                                        <i class="bi bi-map"></i>
+                                        <p class="mt-2 mb-0">نقشه موقعیت فروشگاه</p>
+                                        <a href="#" class="btn btn-sm btn-outline-primary mt-2">
+                                            <i class="bi bi-arrow-up-right-square me-1"></i> مشاهده در نقشه
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="visit-hours mt-3">
+                                    <h6><i class="bi bi-door-open me-2"></i>ساعات مراجعه حضوری:</h6>
+                                    <p class="mb-0">همه روزه از ۹ صبح تا ۹ شب</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="contact-faq py-5 bg-light">
+        <div class="container">
+            <div class="section-header text-center mb-5">
+                <h2 class="section-title">پاسخ به سوالات رایج</h2>
+                <p class="section-subtitle">پیش از تماس، شاید پاسخ سوال شما اینجا باشد</p>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="faq-items">
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <i class="bi bi-question-circle me-2"></i>
+                                <span>می‌توانم محصول را حضوری در فروشگاه ببینم؟</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>بله، تمام محصولات در فروشگاه حضوری ما موجود هستند. برای اطمینان از موجودی، پیش از مراجعه با شماره فروشگاه تماس بگیرید.</p>
+                            </div>
+                        </div>
+
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <i class="bi bi-question-circle me-2"></i>
+                                <span>آیا امکان بازدید از آموزشگاه تعمیرات دارید؟</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>بله، با هماهنگی قبلی می‌توانید از کلاس‌های آموزشی ما بازدید کنید. برای تنظیم وقت با شماره آموزشگاه تماس بگیرید.</p>
+                            </div>
+                        </div>
+
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <i class="bi bi-question-circle me-2"></i>
+                                <span>چگونه سفارشم را پیگیری کنم؟</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>کد رهگیری ارسال شده به پیامک شما را می‌توانید در بخش پیگیری سفارش سایت وارد کنید یا با پشتیبانی تماس بگیرید.</p>
+                            </div>
+                        </div>
+
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <i class="bi bi-question-circle me-2"></i>
+                                <span>برای مشاوره خرید باید هزینه پرداخت کنم؟</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p>خیر، مشاوره فنی و خرید در نوین دیجیتال کاملاً رایگان است. کارشناسان ما بهترین پیشنهاد را متناسب با نیاز شما ارائه می‌دهند.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-center mt-5">
+                        <p class="mb-3">سوال دیگری دارید؟</p>
+                        <a href="tel:09196921902" class="btn btn-primary btn-lg">
+                            <i class="bi bi-telephone me-2"></i> همین حالا تماس بگیرید
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="contact-cta py-5">
+        <div class="container">
+            <div class="cta-card">
+                <div class="row align-items-center">
+                    <div class="col-lg-8">
+                        <h3 class="cta-title mb-3">هنوز سوالی دارید؟</h3>
+                        <p class="cta-text mb-0">
+                            تیم پشتیبانی نوین دیجیتال آماده پاسخگویی به تمام سوالات شماست. از مشاوره خرید تا پشتیبانی فنی، در کنار شما هستیم.
+                        </p>
+                    </div>
+                    <div class="col-lg-4 text-lg-start text-center mt-3 mt-lg-0">
+                        <a href="tel:02536707570" class="btn btn-light btn-lg">
+                            <i class="bi bi-headset me-2"></i> تماس با پشتیبانی
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="novin-footer py-5">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-brand mb-3">
+                        <h5 class="mt-2 mb-1">نوین دیجیتال</h5>
+                        <p class="footer-tagline small">فروشگاه تخصصی محصولات دیجیتال</p>
+                    </div>
+                    <p class="footer-desc small mb-3">
+                        با بیش از یک دهه تجربه در زمینه واردات و فروش محصولات دیجیتال، ارائه کننده بهترین برندها با گارانتی اصلی و پشتیبانی ۲۴ ساعته.
+                    </p>
+                    <div class="footer-contact">
+                        <div class="contact-item">
+                            <i class="bi bi-telephone"></i>
+                            <span class="small">۰۲۵-۳۶۷۰۷۵۷۰</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="bi bi-phone"></i>
+                            <span class="small">۰۹۱۹۶۹۲۱۹۰۲</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="bi bi-geo-alt"></i>
+                            <span class="small">قم، خیابان آذر، پلاک ۱۲</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="bi bi-clock"></i>
+                            <span class="small">شنبه تا پنجشنبه: ۹ صبح تا ۹ شب</span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h6 class="footer-heading mb-3">لینک‌های سریع</h6>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="bi bi-house-door me-1"></i> خانه</a></li>
+                        <li><a href="product archive.html"><i class="bi bi-grid me-1"></i> محصولات</a></li>
+                        <li><a href="blog.html"><i class="bi bi-newspaper me-1"></i> بلاگ</a></li>
+                        <li><a href="about.html"><i class="bi bi-info-circle me-1"></i> درباره ما</a></li>
+                        <li><a href="contact.html"><i class="bi bi-envelope me-1"></i> تماس با ما</a></li>
+                    </ul>
+                </div>
+
+
+                <div class="col-lg-3 col-md-4 mb-4">
+                    <h6 class="footer-heading mb-3">خدمات مشتریان</h6>
+                    <ul class="footer-links">
+                        <li><a href="installment.html"><i class="bi bi-credit-card me-1"></i> خرید اقساطی</a></li>
+                        <li><a href="privacy.html"><i class="bi bi-shield-check me-1"></i>قوانین و مقررات</a></li>
+                        <li><a href="faq.html"><i class="bi bi-truck me-1"></i> شرایط ارسال</a></li>
+                        <li><a href="404.html"><i class="bi bi-arrow-return-left me-1"></i> بازگرداندن کالا</a></li>
+                        <li><a href="faq.html"><i class="bi bi-question-circle me-1"></i> سوالات متداول</a></li>
+                    </ul>
+                </div>
+
+
+                <div class="col-lg-3 col-md-4 mb-4">
+                    <h6 class="footer-heading mb-3">ما را دنبال کنید</h6>
+                    <div class="social-links mb-4">
+                        <a href="https://instagram.com/novindigital" target="_blank" class="social-link instagram">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="https://t.me/novindigital" target="_blank" class="social-link telegram">
+                            <i class="bi bi-telegram"></i>
+                        </a>
+                        <a href="https://wa.me/989196921902" target="_blank" class="social-link whatsapp">
+                            <i class="bi bi-whatsapp"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@novindigital" target="_blank" class="social-link youtube">
+                            <i class="bi bi-youtube"></i>
+                        </a>
+                        <a href="https://www.aparat.com/novindigital" target="_blank" class="social-link aparat">
+                            <i class="bi bi-camera-video"></i>
+                        </a>
+                    </div>
+
+                    <div class="newsletter">
+                        <h6 class="newsletter-title mb-2">عضویت در خبرنامه</h6>
+                        <p class="newsletter-desc small mb-2">از جدیدترین تخفیف‌ها و محصولات با خبر شوید</p>
+                        <div class="input-group input-group-sm">
+                            <input type="email" class="form-control" placeholder="آدرس ایمیل شما" id="newsletterEmail">
+                            <button class="btn btn-newsletter" type="button" id="newsletterSubscribe">
+                        <i class="bi bi-send"></i>
+                    </button>
+                        </div>
+                        <p class="newsletter-note extra-small mt-2">هفته‌ای یک ایمیل مفید دریافت خواهید کرد</p>
+                    </div>
+
+
+                    <div class="trust-badges mt-3">
+                        <img src="images/نماد الکترونیک.png" alt="نماد اعتماد الکترونیکی" class="trust-badge me-2" style="height: 40px;">
+                    </div>
+                </div>
+            </div>
+
+            <hr class="footer-divider my-4">
+
+            <div class="footer-bottom text-center">
+                <div class="row align-items-center">
+                    <div class="col-md-6 mb-2 mb-md-0">
+                        <p class="copyright small mb-0">
+                            © ۱۴۰۳ نوین دیجیتال — تمامی حقوق محفوظ است.
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="designer small mb-0">
+                            <i class="bi bi-code-slash me-1"></i> طراحی و توسعه: محدثه اسلامی
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <button class="scroll-to-top" id="scrollToTop" title="برو به بالا">
+        <i class="bi bi-chevron-up"></i>
+    </button>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const scrollBtn = document.getElementById('scrollToTop');
+        if (scrollBtn) {
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    scrollBtn.classList.add('show');
+                } else {
+                    scrollBtn.classList.remove('show');
+                }
+            });
+
+            scrollBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
+    </script>
+</body>
+
+</html>

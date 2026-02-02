@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>موبایل‌های هوشمند | نوین دیجیتال</title>
+
+
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/mobiles.css">
+
+
+    <meta name="description" content="خرید انواع موبایل هوشمند - آیفون، سامسونگ، شیائومی با بهترین قیمت و گارانتی اصلی">
+    <meta name="keywords" content="موبایل, آیفون, سامسونگ, شیائومی, گوشی هوشمند, خرید موبایل">
+    <meta name="author" content="نوین دیجیتال">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark novin-header sticky-top">
+        <div class="container">
+
+            <div class="d-flex align-items-center">
+
+                <a class="navbar-brand d-flex align-items-center me-3" href="index.html">
+                    <img src="images/بدون بک.png" alt="نوین دیجیتال" class="logo-img">
+                    <span class="brand-name me-2">NovinDigital</span>
+                </a>
+
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+
+                <div class="collapse navbar-collapse" id="navbarContent">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="index.html">خانه</a>
+                        </li>
+
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                                محصولات
+                            </a>
+                            <ul class="dropdown-menu">
+
+                                <li><a class="dropdown-item fw-bold" href="products.html">آرشیو محصولات</a></li>
+                            </ul>
+                        </li>
+
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                                بلاگ
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="blog.html">مقالات جدید</a></li>
+                                <li><a class="dropdown-item" href="Blog archive.html">آرشیو بلاگ</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">درباره ما</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="installment.html">خرید اقساطی</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+
+
+            <div class="d-none d-lg-flex flex-grow-1"></div>
+
+
+            <div class="nav-icons d-flex align-items-center">
+
+                <button class="nav-icon me-2" type="button" data-bs-toggle="modal" data-bs-target="#searchModal" title="جستجو">
+                    <i class="bi bi-search"></i>
+                </button>
+
+
+                <div class="dropdown me-2">
+                    <button class="nav-icon dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                        <i class="bi bi-person"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="login.html">ورود</a></li>
+                        <li><a class="dropdown-item" href="register.html">ثبت‌نام</a></li>
+                        <li>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <a href="wishlist.html" class="nav-icon me-2 position-relative" title="علاقه‌مندی‌ها">
+                    <i class="bi bi-heart"></i>
+                    <span class="icon-badge">۳</span>
+                </a>
+
+
+                <button class="nav-icon position-relative" type="button" data-bs-toggle="modal" data-bs-target="#cartModal" title="سبد خرید">
+                    <i class="bi bi-cart"></i>
+                    <span class="icon-badge" id="cartCountBadge">۲</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+
+    <section class="advanced-filters py-4">
+        <div class="container">
+            <div class="row g-3">
+
+                <div class="col-md-3 col-6">
+                    <div class="filter-group">
+                        <h6 class="filter-title mb-2"><i class="bi bi-tag me-2"></i>برند</h6>
+                        <div class="brand-filters">
+                            <div class="form-check">
+                                <input class="form-check-input filter-checkbox" type="checkbox" value="apple" id="brandApple" checked>
+                                <label class="form-check-label" for="brandApple">آیفون</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input filter-checkbox" type="checkbox" value="samsung" id="brandSamsung" checked>
+                                <label class="form-check-label" for="brandSamsung">سامسونگ</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input filter-checkbox" type="checkbox" value="xiaomi" id="brandXiaomi" checked>
+                                <label class="form-check-label" for="brandXiaomi">شیائومی</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- قیمت -->
+                <div class="col-md-3 col-6">
+                    <div class="filter-group">
+                        <h6 class="filter-title mb-2"><i class="bi bi-currency-dollar me-2"></i>محدوده قیمت</h6>
+                        <div class="price-slider-container">
+                            <input type="range" class="form-range" id="priceRange" min="0" max="100000000" step="1000000">
+                            <div class="price-labels d-flex justify-content-between mt-2">
+                                <small class="text-muted" id="minPrice">۰ تومان</small>
+                                <small class="text-muted" id="maxPrice">۱۰۰,۰۰۰,۰۰۰ تومان</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- حافظه -->
+                <div class="col-md-3 col-6">
+                    <div class="filter-group">
+                        <h6 class="filter-title mb-2"><i class="bi bi-sd-card me-2"></i>حافظه داخلی</h6>
+                        <div class="memory-filters">
+                            <div class="form-check">
+                                <input class="form-check-input filter-checkbox" type="checkbox" value="128" id="memory128">
+                                <label class="form-check-label" for="memory128">۱۲۸ گیگابایت</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input filter-checkbox" type="checkbox" value="256" id="memory256">
+                                <label class="form-check-label" for="memory256">۲۵۶ گیگابایت</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input filter-checkbox" type="checkbox" value="512" id="memory512">
+                                <label class="form-check-label" for="memory512">۵۱۲ گیگابایت</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- عملیات فیلتر -->
+                <div class="col-md-3 col-6">
+                    <div class="filter-actions">
+                        <h6 class="filter-title mb-2"><i class="bi bi-funnel me-2"></i>عملیات</h6>
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-primary" id="applyFilters">
+                                <i class="bi bi-filter-circle me-2"></i>اعمال فیلترها
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== محصولات موبایل ==================== -->
+    <section class="mobiles-products py-5">
+        <div class="container">
+            <div class="row g-4" id="productsGrid">
+                <!-- محصولات به صورت داینامیک لود می‌شوند -->
+
+                <!-- محصول ۱ -->
+                <div class="col-lg-3 col-md-4 col-sm-6" data-brand="apple" data-price="45000000" data-memory="256">
+                    <div class="product-card mobile-card">
+                        <div class="product-badge">جدید</div>
+                        <div class="product-image">
+                            <img src="images/iphone 17 chla.jpg" alt="آیفون ۱۷ پرو مکس" loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-brand">Apple</div>
+                            <h5 class="product-title">آیفون ۱۷ پرو مکس CH/A</h5>
+                            <p class="product-specs">
+                                <span><i class="bi bi-memory"></i> 256GB</span>
+                                <span><i class="bi bi-cpu"></i> A18 Pro</span>
+                                <span><i class="bi bi-display"></i> 6.7 اینچ</span>
+                            </p>
+                            <div class="product-price">
+                                <span class="current-price">۴۵,۰۰۰,۰۰۰ تومان</span>
+                            </div>
+                            <div class="product-actions">
+                                <button class="btn btn-add-to-cart" data-product="1">
+                                    <i class="bi bi-cart-plus"></i>
+                                    افزودن
+                                </button>
+                                <button class="btn btn-outline-primary btn-wishlist">
+                                    <i class="bi bi-heart"></i>
+                                </button>
+                                <a href="iphone-17-pro-max.html" class="btn btn-outline-secondary">
+                                    <i class="bi bi-eye"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- محصول ۲ -->
+                <div class="col-lg-3 col-md-4 col-sm-6" data-brand="samsung" data-price="52000000" data-memory="256">
+                    <div class="product-card mobile-card">
+                        <div class="product-badge">پرفروش</div>
+                        <div class="product-image">
+                            <img src="images/iphone 17 chla.jpg" alt="سامسونگ S25 اولترا" loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-brand">Samsung</div>
+                            <h5 class="product-title">سامسونگ Galaxy S25 Ultra</h5>
+                            <p class="product-specs">
+                                <span><i class="bi bi-memory"></i> 256GB</span>
+                                <span><i class="bi bi-cpu"></i> Snapdragon 8 Gen 4</span>
+                                <span><i class="bi bi-display"></i> 6.8 اینچ</span>
+                            </p>
+                            <div class="product-price">
+                                <span class="current-price">۵۲,۰۰۰,۰۰۰ تومان</span>
+                            </div>
+                            <div class="product-actions">
+                                <button class="btn btn-add-to-cart" data-product="2">
+                                    <i class="bi bi-cart-plus"></i>
+                                    افزودن
+                                </button>
+                                <button class="btn btn-outline-primary btn-wishlist">
+                                    <i class="bi bi-heart"></i>
+                                </button>
+                                <a href="iphone-17-pro-max.html" class="btn btn-outline-secondary">
+                                    <i class="bi bi-eye"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- محصول ۳ -->
+                <div class="col-lg-3 col-md-4 col-sm-6" data-brand="apple" data-price="58000000" data-memory="512">
+                    <div class="product-card mobile-card">
+                        <div class="product-badge">انحصاری</div>
+                        <div class="product-image">
+                            <img src="images//iphone 17 chla.jpg" alt="آیفون ۱۶ پرو مکس" loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-brand">Apple</div>
+                            <h5 class="product-title">آیفون ۱۶ پرو مکس ZA/A</h5>
+                            <p class="product-specs">
+                                <span><i class="bi bi-memory"></i> 512GB</span>
+                                <span><i class="bi bi-cpu"></i> A17 Pro</span>
+                                <span><i class="bi bi-display"></i> 6.7 اینچ</span>
+                            </p>
+                            <div class="product-price">
+                                <span class="current-price">۵۸,۰۰۰,۰۰۰ تومان</span>
+                            </div>
+                            <div class="product-actions">
+                                <button class="btn btn-add-to-cart" data-product="3">
+                                    <i class="bi bi-cart-plus"></i>
+                                    افزودن
+                                </button>
+                                <button class="btn btn-outline-primary btn-wishlist">
+                                    <i class="bi bi-heart"></i>
+                                </button>
+                                <a href="iphone-17-pro-max.html" class="btn btn-outline-secondary">
+                                    <i class="bi bi-eye"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- محصول ۴ -->
+                <div class="col-lg-3 col-md-4 col-sm-6" data-brand="xiaomi" data-price="28000000" data-memory="256">
+                    <div class="product-card mobile-card">
+                        <div class="product-badge">اقتصادی</div>
+                        <div class="product-image">
+                            <img src="images/iphone 17 chla.jpg" alt="شیائومی ۱۴ اولترا" loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-brand">Xiaomi</div>
+                            <h5 class="product-title">شیائومی ۱۴ اولترا</h5>
+                            <p class="product-specs">
+                                <span><i class="bi bi-memory"></i> 256GB</span>
+                                <span><i class="bi bi-cpu"></i> Snapdragon 8 Gen 3</span>
+                                <span><i class="bi bi-display"></i> 6.73 اینچ</span>
+                            </p>
+                            <div class="product-price">
+                                <span class="current-price">۲۸,۰۰۰,۰۰۰ تومان</span>
+                            </div>
+                            <div class="product-actions">
+                                <button class="btn btn-add-to-cart" data-product="4">
+                                    <i class="bi bi-cart-plus"></i>
+                                    افزودن
+                                </button>
+                                <button class="btn btn-outline-primary btn-wishlist">
+                                    <i class="bi bi-heart"></i>
+                                </button>
+                                <a href="iphone-17-pro-max.html" class="btn btn-outline-secondary">
+                                    <i class="bi bi-eye"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- محصول ۵ -->
+                <div class="col-lg-3 col-md-4 col-sm-6" data-brand="samsung" data-price="32000000" data-memory="128">
+                    <div class="product-card mobile-card">
+                        <div class="product-badge">محبوب</div>
+                        <div class="product-image">
+                            <img src="images/iphone 17 chla.jpg" alt="سامسونگ Z Fold 6" loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-brand">Samsung</div>
+                            <h5 class="product-title">سامسونگ Galaxy Z Fold 6</h5>
+                            <p class="product-specs">
+                                <span><i class="bi bi-memory"></i> 128GB</span>
+                                <span><i class="bi bi-cpu"></i> Snapdragon 8 Gen 3</span>
+                                <span><i class="bi bi-display"></i> 7.6 اینچ</span>
+                            </p>
+                            <div class="product-price">
+                                <span class="current-price">۳۲,۰۰۰,۰۰۰ تومان</span>
+                            </div>
+                            <div class="product-actions">
+                                <button class="btn btn-add-to-cart" data-product="5">
+                                    <i class="bi bi-cart-plus"></i>
+                                    افزودن
+                                </button>
+                                <button class="btn btn-outline-primary btn-wishlist">
+                                    <i class="bi bi-heart"></i>
+                                </button>
+                                <a href="iphone-17-pro-max.html" class="btn btn-outline-secondary">
+                                    <i class="bi bi-eye"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- محصول ۶ -->
+                <div class="col-lg-3 col-md-4 col-sm-6" data-brand="apple" data-price="38000000" data-memory="256">
+                    <div class="product-card mobile-card">
+                        <div class="product-image">
+                            <img src="images/iphone 17 chla.jpg" alt="آیفون ۱۵ پرو" loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-brand">Apple</div>
+                            <h5 class="product-title">آیفون ۱۵ پرو CH/A</h5>
+                            <p class="product-specs">
+                                <span><i class="bi bi-memory"></i> 256GB</span>
+                                <span><i class="bi bi-cpu"></i> A16 Bionic</span>
+                                <span><i class="bi bi-display"></i> 6.1 اینچ</span>
+                            </p>
+                            <div class="product-price">
+                                <span class="current-price">۳۸,۰۰۰,۰۰۰ تومان</span>
+                            </div>
+                            <div class="product-actions">
+                                <button class="btn btn-add-to-cart" data-product="6">
+                                    <i class="bi bi-cart-plus"></i>
+                                    افزودن
+                                </button>
+                                <button class="btn btn-outline-primary btn-wishlist">
+                                    <i class="bi bi-heart"></i>
+                                </button>
+                                <a href="iphone-17-pro-max.html" class="btn btn-outline-secondary">
+                                    <i class="bi bi-eye"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- محصول ۷ -->
+                <div class="col-lg-3 col-md-4 col-sm-6" data-brand="xiaomi" data-price="15000000" data-memory="128">
+                    <div class="product-card mobile-card">
+                        <div class="product-badge">پیشنهادی</div>
+                        <div class="product-image">
+                            <img src="images/iphone 17 chla.jpg" alt="شیائومی ۱۳T پرو" loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-brand">Xiaomi</div>
+                            <h5 class="product-title">شیائومی ۱۳T پرو</h5>
+                            <p class="product-specs">
+                                <span><i class="bi bi-memory"></i> 128GB</span>
+                                <span><i class="bi bi-cpu"></i> Dimensity 9200+</span>
+                                <span><i class="bi bi-display"></i> 6.67 اینچ</span>
+                            </p>
+                            <div class="product-price">
+                                <span class="current-price">۱۵,۰۰۰,۰۰۰ تومان</span>
+                            </div>
+                            <div class="product-actions">
+                                <button class="btn btn-add-to-cart" data-product="7">
+                                    <i class="bi bi-cart-plus"></i>
+                                    افزودن
+                                </button>
+                                <button class="btn btn-outline-primary btn-wishlist">
+                                    <i class="bi bi-heart"></i>
+                                </button>
+                                <a href="iphone-17-pro-max.html" class="btn btn-outline-secondary">
+                                    <i class="bi bi-eye"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- محصول ۸ -->
+                <div class="col-lg-3 col-md-4 col-sm-6" data-brand="samsung" data-price="22000000" data-memory="256">
+                    <div class="product-card mobile-card">
+                        <div class="product-badge">تخفیف ویژه</div>
+                        <div class="product-image">
+                            <img src="images/iphone 17 chla.jpg" alt="سامسونگ S24 پلاس" loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-brand">Samsung</div>
+                            <h5 class="product-title">سامسونگ Galaxy S24+</h5>
+                            <p class="product-specs">
+                                <span><i class="bi bi-memory"></i> 256GB</span>
+                                <span><i class="bi bi-cpu"></i> Exynos 2400</span>
+                                <span><i class="bi bi-display"></i> 6.7 اینچ</span>
+                            </p>
+                            <div class="product-price">
+                                <span class="current-price">۲۲,۰۰۰,۰۰۰ تومان</span>
+                            </div>
+                            <div class="product-actions">
+                                <button class="btn btn-add-to-cart" data-product="8">
+                                    <i class="bi bi-cart-plus"></i>
+                                    افزودن
+                                </button>
+                                <button class="btn btn-outline-primary btn-wishlist">
+                                    <i class="bi bi-heart"></i>
+                                </button>
+                                <a href="iphone-17-pro-max.html" class="btn btn-outline-secondary">
+                                    <i class="bi bi-eye"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- دکمه مشاهده بیشتر -->
+            <div class="text-center mt-5">
+                <button class="btn btn-load-more" id="loadMore">
+                    <i class="bi bi-arrow-down-circle me-2"></i>
+                    مشاهده محصولات بیشتر
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== مقایسه محصولات ==================== -->
+    <section class="comparison-section py-5 bg-light">
+        <div class="container">
+            <div class="section-header text-center mb-5">
+                <h2 class="section-title">مقایسه برترین مدل‌ها</h2>
+                <p class="section-subtitle">انتخاب آگاهانه با مقایسه مشخصات فنی</p>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table comparison-table">
+                    <thead>
+                        <tr>
+                            <th>مشخصات</th>
+                            <th>آیفون ۱۷ پرو مکس</th>
+                            <th>سامسونگ S25 اولترا</th>
+                            <th>شیائومی ۱۴ اولترا</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>پردازنده</td>
+                            <td>A18 Pro</td>
+                            <td>Snapdragon 8 Gen 4</td>
+                            <td>Snapdragon 8 Gen 3</td>
+                        </tr>
+                        <tr>
+                            <td>حافظه RAM</td>
+                            <td>۸GB</td>
+                            <td>۱۲GB</td>
+                            <td>۱۶GB</td>
+                        </tr>
+                        <tr>
+                            <td>حافظه داخلی</td>
+                            <td>۲۵۶GB - ۱TB</td>
+                            <td>۲۵۶GB - ۱TB</td>
+                            <td>۲۵۶GB - ۵۱۲GB</td>
+                        </tr>
+                        <tr>
+                            <td>دوربین اصلی</td>
+                            <td>۴۸ مگاپیکسل</td>
+                            <td>۲۰۰ مگاپیکسل</td>
+                            <td>۵۰ مگاپیکسل</td>
+                        </tr>
+                        <tr>
+                            <td>باتری</td>
+                            <td>۴۵۰۰ mAh</td>
+                            <td>۵۰۰۰ mAh</td>
+                            <td>۵۳۰۰ mAh</td>
+                        </tr>
+                        <tr>
+                            <td>قیمت شروع</td>
+                            <td class="text-danger">۴۵,۰۰۰,۰۰۰ تومان</td>
+                            <td class="text-danger">۵۲,۰۰۰,۰۰۰ تومان</td>
+                            <td class="text-danger">۲۸,۰۰۰,۰۰۰ تومان</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== راهنمای خرید ==================== -->
+    <section class="buying-guide py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="guide-card">
+                        <div class="guide-icon">
+                            <i class="bi bi-cpu"></i>
+                        </div>
+                        <h5>پردازنده مناسب</h5>
+                        <p>برای کارهای سنگین پردازنده‌های Snapdragon 8 Gen 3 به بالا یا Apple A17/Bionic مناسبند.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="guide-card">
+                        <div class="guide-icon">
+                            <i class="bi bi-camera"></i>
+                        </div>
+                        <h5>دوربین حرفه‌ای</h5>
+                        <p>برای عکاسی حرفه‌ای به سنسورهای ۵۰+ مگاپیکسل با دیافراگم باز توجه کنید.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="guide-card">
+                        <div class="guide-icon">
+                            <i class="bi bi-battery-charging"></i>
+                        </div>
+                        <h5>باتری قدرتمند</h5>
+                        <p>باتری بالای ۴۵۰۰ میلی‌آمپر با شارژ سریع ۶۷ وات به بالا توصیه می‌شود.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== فوتر ==================== -->
+    <footer class="novin-footer py-5">
+        <div class="container">
+            <div class="row">
+                <!-- اطلاعات تماس -->
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-brand mb-3">
+                        <h5 class="mt-2 mb-1">نوین دیجیتال</h5>
+                        <p class="footer-tagline small">فروشگاه تخصصی محصولات دیجیتال</p>
+                    </div>
+                    <p class="footer-desc small mb-3">
+                        با بیش از یک دهه تجربه در زمینه واردات و فروش محصولات دیجیتال، ارائه کننده بهترین برندها با گارانتی اصلی و پشتیبانی ۲۴ ساعته.
+                    </p>
+                    <div class="footer-contact">
+                        <div class="contact-item">
+                            <i class="bi bi-telephone"></i>
+                            <span class="small">۰۲۵-۳۶۷۰۷۵۷۰</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="bi bi-phone"></i>
+                            <span class="small">۰۹۱۹۶۹۲۱۹۰۲</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="bi bi-geo-alt"></i>
+                            <span class="small">قم، خیابان آذر، پلاک ۱۲</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="bi bi-clock"></i>
+                            <span class="small">شنبه تا پنجشنبه: ۹ صبح تا ۹ شب</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- لینک‌های سریع -->
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h6 class="footer-heading mb-3">لینک‌های سریع</h6>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="bi bi-house-door me-1"></i> خانه</a></li>
+                        <li><a href="product archive.html"><i class="bi bi-grid me-1"></i> محصولات</a></li>
+                        <li><a href="blog.html"><i class="bi bi-newspaper me-1"></i> بلاگ</a></li>
+                        <li><a href="about.html"><i class="bi bi-info-circle me-1"></i> درباره ما</a></li>
+                        <li><a href="contact.html"><i class="bi bi-envelope me-1"></i> تماس با ما</a></li>
+                    </ul>
+                </div>
+
+                <!-- خدمات -->
+                <div class="col-lg-3 col-md-4 mb-4">
+                    <h6 class="footer-heading mb-3">خدمات مشتریان</h6>
+                    <ul class="footer-links">
+                        <li><a href="installment.html"><i class="bi bi-credit-card me-1"></i> خرید اقساطی</a></li>
+                        <li><a href="privacy.html"><i class="bi bi-shield-check me-1"></i>قوانین و مقررات</a></li>
+                        <li><a href="faq.html"><i class="bi bi-truck me-1"></i> شرایط ارسال</a></li>
+                        <li><a href="404.html"><i class="bi bi-arrow-return-left me-1"></i> بازگرداندن کالا</a></li>
+                        <li><a href="faq.html"><i class="bi bi-question-circle me-1"></i> سوالات متداول</a></li>
+                    </ul>
+                </div>
+
+                <!-- شبکه‌های اجتماعی -->
+                <div class="col-lg-3 col-md-4 mb-4">
+                    <h6 class="footer-heading mb-3">ما را دنبال کنید</h6>
+                    <div class="social-links mb-4">
+                        <a href="https://instagram.com/novindigital" target="_blank" class="social-link instagram">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="https://t.me/novindigital" target="_blank" class="social-link telegram">
+                            <i class="bi bi-telegram"></i>
+                        </a>
+                        <a href="https://wa.me/989196921902" target="_blank" class="social-link whatsapp">
+                            <i class="bi bi-whatsapp"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@novindigital" target="_blank" class="social-link youtube">
+                            <i class="bi bi-youtube"></i>
+                        </a>
+                        <a href="https://www.aparat.com/novindigital" target="_blank" class="social-link aparat">
+                            <i class="bi bi-camera-video"></i>
+                        </a>
+                    </div>
+
+                    <div class="newsletter">
+                        <h6 class="newsletter-title mb-2">عضویت در خبرنامه</h6>
+                        <p class="newsletter-desc small mb-2">از جدیدترین تخفیف‌ها و محصولات با خبر شوید</p>
+                        <div class="input-group input-group-sm">
+                            <input type="email" class="form-control" placeholder="آدرس ایمیل شما" id="newsletterEmail">
+                            <button class="btn btn-newsletter" type="button" id="newsletterSubscribe">
+                        <i class="bi bi-send"></i>
+                    </button>
+                        </div>
+                        <p class="newsletter-note extra-small mt-2">هفته‌ای یک ایمیل مفید دریافت خواهید کرد</p>
+                    </div>
+
+                    <!-- اعتماد نمادها -->
+                    <div class="trust-badges mt-3">
+                        <img src="images/نماد الکترونیک.png" alt="نماد اعتماد الکترونیکی" class="trust-badge me-2" style="height: 40px;">
+                    </div>
+                </div>
+            </div>
+
+            <hr class="footer-divider my-4">
+
+            <div class="footer-bottom text-center">
+                <div class="row align-items-center">
+                    <div class="col-md-6 mb-2 mb-md-0">
+                        <p class="copyright small mb-0">
+                            © ۱۴۰۳ نوین دیجیتال — تمامی حقوق محفوظ است.
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="designer small mb-0">
+                            <i class="bi bi-code-slash me-1"></i> طراحی و توسعه: محدثه اسلامی
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 🔹 دکمه اسکرول به بالا -->
+    <button class="scroll-to-top" id="scrollToTop" title="برو به بالا">
+        <i class="bi bi-chevron-up"></i>
+    </button>
+
+    <!-- اسکریپت‌ها -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/mobiles.js"></script>
+</body>
+
+</html>

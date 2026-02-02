@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سوالات متداول - نوین دیجیتال</title>
+
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">-->
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" href="css/faq.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark novin-header sticky-top">
+        <div class="container">
+
+            <div class="d-flex align-items-center">
+
+                <a class="navbar-brand d-flex align-items-center me-3" href="index.html">
+                    <img src="images/بدون بک.png" alt="نوین دیجیتال" class="logo-img">
+                    <span class="brand-name me-2">NovinDigital</span>
+                </a>
+
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+
+                <div class="collapse navbar-collapse" id="navbarContent">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="index.html">خانه</a>
+                        </li>
+
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                                محصولات
+                            </a>
+                            <ul class="dropdown-menu">
+
+                                <li><a class="dropdown-item fw-bold" href="product archive.html">آرشیو محصولات</a></li>
+                            </ul>
+                        </li>
+
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                                بلاگ
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="blog.html">مقالات جدید</a></li>
+                                <li><a class="dropdown-item" href="blog archive.html">آرشیو بلاگ</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">درباره ما</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="installment.html">خرید اقساطی</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+
+
+            <div class="d-none d-lg-flex flex-grow-1"></div>
+
+
+            <div class="nav-icons d-flex align-items-center">
+
+                <button class="nav-icon me-2" type="button" data-bs-toggle="modal" data-bs-target="#searchModal" title="جستجو">
+                    <i class="bi bi-search"></i>
+                </button>
+
+
+                <div class="dropdown me-2">
+                    <button class="nav-icon dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                        <i class="bi bi-person"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="login.html">ورود</a></li>
+                        <li><a class="dropdown-item" href="register.html">ثبت‌نام</a></li>
+                        <li>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <a href="404.html" class="nav-icon me-2 position-relative" title="علاقه‌مندی‌ها">
+                    <i class="bi bi-heart"></i>
+                    <span class="icon-badge">۳</span>
+                </a>
+
+
+                <button class="nav-icon position-relative" type="button" data-bs-toggle="modal" data-bs-target="#cartModal" title="سبد خرید">
+                    <i class="bi bi-cart"></i>
+                    <span class="icon-badge" id="cartCountBadge">۲</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+
+    <section class="faq-categories py-5">
+        <div class="container">
+            <div class="section-header text-center mb-5">
+                <h2 class="section-title">دسته‌بندی سوالات</h2>
+                <p class="section-subtitle">سوالات خود را بر اساس دسته‌بندی پیدا کنید</p>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <a href="#products" class="category-card">
+                        <div class="category-icon">
+                            <i class="bi bi-phone"></i>
+                        </div>
+                        <h5>محصولات</h5>
+                        <p>سوالات مربوط به محصولات</p>
+                    </a>
+                </div>
+
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <a href="#installment" class="category-card">
+                        <div class="category-icon">
+                            <i class="bi bi-credit-card"></i>
+                        </div>
+                        <h5>خرید اقساطی</h5>
+                        <p>شرایط و مدارک لازم</p>
+                    </a>
+                </div>
+
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <a href="#shipping" class="category-card">
+                        <div class="category-icon">
+                            <i class="bi bi-truck"></i>
+                        </div>
+                        <h5>ارسال و تحویل</h5>
+                        <p>زمان و هزینه ارسال</p>
+                    </a>
+                </div>
+
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <a href="#support" class="category-card">
+                        <div class="category-icon">
+                            <i class="bi bi-headset"></i>
+                        </div>
+                        <h5>پشتیبانی</h5>
+                        <p>گارانتی و خدمات پس از فروش</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="faq-questions py-5" id="products">
+        <div class="container">
+            <div class="section-header mb-4">
+                <h3 class="category-title">
+                    <i class="bi bi-phone me-3"></i> سوالات متداول محصولات
+                </h3>
+            </div>
+
+            <div class="accordion novin-accordion" id="productsAccordion">
+
+                <div class="accordion-item">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#product1">
+                            <span class="faq-question-text">شرایط گارانتی محصولات چگونه است؟</span>
+                        </button>
+                    </h3>
+                    <div id="product1" class="accordion-collapse collapse" data-bs-parent="#productsAccordion">
+                        <div class="accordion-body">
+                            <p>تمام محصولات نوین دیجیتال با <strong>گارانتی اصلی و معتبر</strong> ارائه می‌شوند:</p>
+                            <ul class="faq-list">
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i> <strong>موبایل و تبلت:</strong> ۱۲ ماه گارانتی</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i> <strong>لپ‌تاپ و کامپیوتر:</strong> ۲۴ ماه گارانتی</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i> <strong>لوازم جانبی:</strong> ۶ تا ۱۲ ماه گارانتی</li>
+                            </ul>
+                            <p>برای فعال‌سازی گارانتی، کافی است شماره سریال محصول را در سایت گارانتی‌دهنده ثبت کنید.</p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="accordion-item">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#product2">
+                            <span class="faq-question-text">محصولات نوین دیجیتال اورجینال هستند؟</span>
+                        </button>
+                    </h3>
+                    <div id="product2" class="accordion-collapse collapse" data-bs-parent="#productsAccordion">
+                        <div class="accordion-body">
+                            <p>بله، <strong>تمام محصولات نوین دیجیتال ۱۰۰% اورجینال</strong> بوده و از طریق کانال‌های رسمی واردات تامین می‌شوند.</p>
+                            <div class="alert alert-info mt-3">
+                                <i class="bi bi-shield-check me-2"></i> شما می‌توانید اصالت کالا را از طریق شماره سریال در سایت سازنده بررسی کنید.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="accordion-item">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#product3">
+                            <span class="faq-question-text">آیا امکان تست محصول قبل از خرید وجود دارد؟</span>
+                        </button>
+                    </h3>
+                    <div id="product3" class="accordion-collapse collapse" data-bs-parent="#productsAccordion">
+                        <div class="accordion-body">
+                            <p>بله، برای خریدهای حضوری در فروشگاه فیزیکی ما، امکان تست محصولات وجود دارد. برای خریدهای آنلاین:</p>
+                            <ul class="faq-list">
+                                <li>ویدئو بررسی کامل محصول در صفحه محصول موجود است</li>
+                                <li>می‌توانید از طریق چت آنلاین سوالات فنی خود را بپرسید</li>
+                                <li>تا ۷ روز پس از تحویل امکان بازگشت کالا وجود دارد</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="faq-questions py-5 bg-light" id="installment">
+        <div class="container">
+            <div class="section-header mb-4">
+                <h3 class="category-title">
+                    <i class="bi bi-credit-card me-3"></i> سوالات متداول خرید اقساطی
+                </h3>
+            </div>
+
+            <div class="accordion novin-accordion" id="installmentAccordion">
+
+                <div class="accordion-item">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#installment1">
+                            <span class="faq-question-text">چه کسانی می‌توانند خرید اقساطی داشته باشند؟</span>
+                        </button>
+                    </h3>
+                    <div id="installment1" class="accordion-collapse collapse" data-bs-parent="#installmentAccordion">
+                        <div class="accordion-body">
+                            <p>کلیه افراد شاغل با سابقه بیمه حداقل ۶ ماه می‌توانند از خدمات خرید اقساطی استفاده کنند:</p>
+                            <ul class="faq-list">
+                                <li>کارمندان بخش دولتی و خصوصی</li>
+                                <li>بازنشستگان</li>
+                                <li>دانشجویان شاغل</li>
+                                <li>اصناف دارای جواز کسب معتبر</li>
+                                <li>فریلنسرها با قراردادهای رسمی</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="accordion-item">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#installment2">
+                            <span class="faq-question-text">مدت زمان بررسی درخواست چقدر است؟</span>
+                        </button>
+                    </h3>
+                    <div id="installment2" class="accordion-collapse collapse" data-bs-parent="#installmentAccordion">
+                        <div class="accordion-body">
+                            <p>درخواست‌های خرید اقساطی <strong>حداکثر تا ۲۴ ساعت کاری</strong> بررسی می‌شوند.</p>
+                            <div class="row mt-3">
+                                <div class="col-md-6">
+                                    <div class="timeline-step">
+                                        <div class="step-number">۱</div>
+                                        <p class="step-text">ثبت درخواست آنلاین</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="timeline-step">
+                                        <div class="step-number">۲</div>
+                                        <p class="step-text">بررسی مدارک (۲۴ ساعت)</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="mt-3 mb-0">در صورت کامل بودن مدارک، معمولاً در همان روز تایید می‌شوند.</p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="accordion-item">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#installment3">
+                            <span class="faq-question-text">نحوه پرداخت اقساط چگونه است؟</span>
+                        </button>
+                    </h3>
+                    <div id="installment3" class="accordion-collapse collapse" data-bs-parent="#installmentAccordion">
+                        <div class="accordion-body">
+                            <p>اقساط به دو روش قابل پرداخت است:</p>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <div class="payment-method">
+                                        <i class="bi bi-bank text-primary"></i>
+                                        <h6>پرداخت خودکار</h6>
+                                        <p class="small">اقساط ماهانه به صورت خودکار از حساب شما کسر می‌شود</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="payment-method">
+                                        <i class="bi bi-credit-card text-success"></i>
+                                        <h6>پرداخت دستی</h6>
+                                        <p class="small">هر ماه از طریق درگاه بانکی پرداخت کنید</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-4">
+                <a href="installment.html" class="btn btn-installment">
+                    <i class="bi bi-arrow-left me-2"></i> مشاهده شرایط کامل خرید اقساطی
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="faq-questions py-5" id="shipping">
+        <div class="container">
+            <div class="section-header mb-4">
+                <h3 class="category-title">
+                    <i class="bi bi-truck me-3"></i> سوالات متداول ارسال و تحویل
+                </h3>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="shipping-card">
+                        <i class="bi bi-geo-alt-fill"></i>
+                        <h5>تهران و قم</h5>
+                        <p class="shipping-time">
+                            <i class="bi bi-clock"></i> تحویل در <strong>همان روز</strong>
+                        </p>
+                        <p class="small">(برای سفارش‌های قبل از ۱۴:۰۰)</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="shipping-card">
+                        <i class="bi bi-geo-alt"></i>
+                        <h5>سایر شهرستان‌ها</h5>
+                        <p class="shipping-time">
+                            <i class="bi bi-clock"></i> تحویل در <strong>۲ تا ۳ روز کاری</strong>
+                        </p>
+                        <p class="small">(با پست پیشتاز یا تیپاکس)</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion novin-accordion mt-4" id="shippingAccordion">
+                <div class="accordion-item">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#shipping1">
+                            <span class="faq-question-text">هزینه ارسال چقدر است؟</span>
+                        </button>
+                    </h3>
+                    <div id="shipping1" class="accordion-collapse collapse" data-bs-parent="#shippingAccordion">
+                        <div class="accordion-body">
+                            <p>هزینه ارسال بر اساس شهر مقصد و وزن محصول متغیر است:</p>
+                            <ul class="faq-list">
+                                <li><strong>تهران و قم:</strong> رایگان</li>
+                                <li><strong>شهرستان‌ها:</strong> از ۳۰,۰۰۰ تومان</li>
+                                <li><strong>خریدهای بالای ۵ میلیون تومان:</strong> ارسال رایگان به سراسر کشور</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="faq-contact py-5 bg-light" id="support">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h3 class="mb-3">پاسخ سوال خود را نیافتید؟</h3>
+                    <p class="mb-4">تیم پشتیبانی نوین دیجیتال آماده پاسخگویی به سوالات شماست.</p>
+
+                    <div class="contact-methods">
+                        <a href="tel:+982536707570" class="btn btn-contact">
+                            <i class="bi bi-telephone"></i> تماس تلفنی
+                        </a>
+                        <a href="https://wa.me/989196921902" class="btn btn-contact whatsapp">
+                            <i class="bi bi-whatsapp"></i> واتس‌اپ
+                        </a>
+                        <a href="contact.html" class="btn btn-contact">
+                            <i class="bi bi-envelope"></i> ارسال پیام
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 text-center">
+                    <div class="support-image">
+                        <i class="bi bi-headset"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="novin-footer py-5">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-brand mb-3">
+                        <h5 class="mt-2 mb-1">نوین دیجیتال</h5>
+                        <p class="footer-tagline small">فروشگاه تخصصی محصولات دیجیتال</p>
+                    </div>
+                    <p class="footer-desc small mb-3">
+                        با بیش از یک دهه تجربه در زمینه واردات و فروش محصولات دیجیتال، ارائه کننده بهترین برندها با گارانتی اصلی و پشتیبانی ۲۴ ساعته.
+                    </p>
+                    <div class="footer-contact">
+                        <div class="contact-item">
+                            <i class="bi bi-telephone"></i>
+                            <span class="small">۰۲۵-۳۶۷۰۷۵۷۰</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="bi bi-phone"></i>
+                            <span class="small">۰۹۱۹۶۹۲۱۹۰۲</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="bi bi-geo-alt"></i>
+                            <span class="small">قم، خیابان آذر، پلاک ۱۲</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="bi bi-clock"></i>
+                            <span class="small">شنبه تا پنجشنبه: ۹ صبح تا ۹ شب</span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h6 class="footer-heading mb-3">لینک‌های سریع</h6>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="bi bi-house-door me-1"></i> خانه</a></li>
+                        <li><a href="product archive.html"><i class="bi bi-grid me-1"></i> محصولات</a></li>
+                        <li><a href="blog.html"><i class="bi bi-newspaper me-1"></i> بلاگ</a></li>
+                        <li><a href="about.html"><i class="bi bi-info-circle me-1"></i> درباره ما</a></li>
+                        <li><a href="contact.html"><i class="bi bi-envelope me-1"></i> تماس با ما</a></li>
+                    </ul>
+                </div>
+
+
+                <div class="col-lg-3 col-md-4 mb-4">
+                    <h6 class="footer-heading mb-3">خدمات مشتریان</h6>
+                    <ul class="footer-links">
+                        <li><a href="installment.html"><i class="bi bi-credit-card me-1"></i> خرید اقساطی</a></li>
+                        <li><a href="privacy.html"><i class="bi bi-shield-check me-1"></i>قوانین و مقررات</a></li>
+                        <li><a href="faq.html"><i class="bi bi-truck me-1"></i> شرایط ارسال</a></li>
+                        <li><a href="404.html"><i class="bi bi-arrow-return-left me-1"></i> بازگرداندن کالا</a></li>
+                        <li><a href="faq.html"><i class="bi bi-question-circle me-1"></i> سوالات متداول</a></li>
+                    </ul>
+                </div>
+
+
+                <div class="col-lg-3 col-md-4 mb-4">
+                    <h6 class="footer-heading mb-3">ما را دنبال کنید</h6>
+                    <div class="social-links mb-4">
+                        <a href="https://instagram.com/novindigital" target="_blank" class="social-link instagram">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="https://t.me/novindigital" target="_blank" class="social-link telegram">
+                            <i class="bi bi-telegram"></i>
+                        </a>
+                        <a href="https://wa.me/989196921902" target="_blank" class="social-link whatsapp">
+                            <i class="bi bi-whatsapp"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@novindigital" target="_blank" class="social-link youtube">
+                            <i class="bi bi-youtube"></i>
+                        </a>
+                        <a href="https://www.aparat.com/novindigital" target="_blank" class="social-link aparat">
+                            <i class="bi bi-camera-video"></i>
+                        </a>
+                    </div>
+
+                    <div class="newsletter">
+                        <h6 class="newsletter-title mb-2">عضویت در خبرنامه</h6>
+                        <p class="newsletter-desc small mb-2">از جدیدترین تخفیف‌ها و محصولات با خبر شوید</p>
+                        <div class="input-group input-group-sm">
+                            <input type="email" class="form-control" placeholder="آدرس ایمیل شما" id="newsletterEmail">
+                            <button class="btn btn-newsletter" type="button" id="newsletterSubscribe">
+                        <i class="bi bi-send"></i>
+                    </button>
+                        </div>
+                        <p class="newsletter-note extra-small mt-2">هفته‌ای یک ایمیل مفید دریافت خواهید کرد</p>
+                    </div>
+
+
+                    <div class="trust-badges mt-3">
+                        <img src="images/نماد الکترونیک.png" alt="نماد اعتماد الکترونیکی" class="trust-badge me-2" style="height: 40px;">
+                    </div>
+                </div>
+            </div>
+
+            <hr class="footer-divider my-4">
+
+            <div class="footer-bottom text-center">
+                <div class="row align-items-center">
+                    <div class="col-md-6 mb-2 mb-md-0">
+                        <p class="copyright small mb-0">
+                            © ۱۴۰۳ نوین دیجیتال — تمامی حقوق محفوظ است.
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="designer small mb-0">
+                            <i class="bi bi-code-slash me-1"></i> طراحی و توسعه: محدثه اسلامی
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- 🔹 دکمه اسکرول به بالا -->
+    <button class="scroll-to-top" id="scrollToTop" title="برو به بالا">
+    <i class="bi bi-chevron-up"></i>
+</button>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // جستجو در سوالات
+        document.querySelector('.search-faq-box input').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const questions = document.querySelectorAll('.faq-question-text');
+
+            questions.forEach(question => {
+                const questionText = question.textContent.toLowerCase();
+                const accordionItem = question.closest('.accordion-item');
+
+                if (questionText.includes(searchTerm)) {
+                    accordionItem.style.display = 'block';
+                    // باز کردن سوال پیدا شده
+                    const button = accordionItem.querySelector('.accordion-button');
+                    const collapseId = button.getAttribute('data-bs-target');
+                    const collapseElement = document.querySelector(collapseId);
+                    new bootstrap.Collapse(collapseElement, {
+                        toggle: true
+                    });
+                } else {
+                    accordionItem.style.display = 'none';
+                }
+            });
+        });
+
+        // اسکرول نرم به دسته‌بندی‌ها
+        document.querySelectorAll('.category-card').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                window.scrollTo({
+                    top: targetElement.offsetTop - 100,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
